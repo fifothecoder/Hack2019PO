@@ -11,7 +11,7 @@ namespace Hack2019PO.Controllers
         // GET: Map
         public ActionResult Index()
         {
-            return View("Hello");
+            return View();
         }
         
 
