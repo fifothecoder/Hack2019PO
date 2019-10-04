@@ -89,13 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
-    <Content Include="images\location-4496459_1280.png" />
-    <Content Include="images\map-4152197_1920.jpg" />
+    <Content Include="images\location.png" />
+    <Content Include="images\map.jpg" />
     <Content Include="images\pen.jpg" />
     <Content Include="images\people.jpg" />
     <Content Include="images\signpost.jpg" />
     <Content Include="images\street-map.jpg" />
-    <Content Include="images\survey-1594962_1920.jpg" />
+    <Content Include="images\survey.jpg" />
     <Content Include="images\travel.jpg" />
     <Content Include="images\vote.jpg" />
     <Content Include="Web.config" />
