@@ -142,6 +142,19 @@
         window.onload = function () {
             moveMapToBerlin(map);
         }
+        function geocode(platform) {
+          var geocoder = platform.getGeocodingService(),
+            parameters = {
+              searchtext: 'Bajkalská 29, Presov',
+              gen: '9'};
+
+          geocoder.geocode(parameters,
+            function (result) {
+              alert(result);
+            }, function (error) {
+              alert(error);
+            });
+}
     </script>
 </body>
 </html>
