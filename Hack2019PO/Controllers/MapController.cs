@@ -22,7 +22,7 @@ namespace Hack2019PO.Controllers
             VoteDistrict vd = new VoteDistrict("Ahoj", "Ahoj", "Ahoj", "Ahoj", 5);
 
 
-            return View(vd);
+            return View();
         }
     }
 }
