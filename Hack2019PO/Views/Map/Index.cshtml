@@ -13,6 +13,13 @@
 </head>
 <body>
     <div> 
+        @using (Html.BeginForm("Result", "Map", FormMethod.Post))
+        {
+            <p>Ulica : @Html.DropDownListFor(x => x.Address, new SelectList(Hack2019PO.Internals.OpenDataHandler.Addresses, "17. novembra"))</p>
+            <p>Číslo ulice : @Html.TextBoxFor(x => x.AddressNo)</p>
+            <input type="submit" value="Vyhľadať" />
+        }
+
     </div>
 </body>
 </html>
