@@ -15,11 +15,15 @@ namespace Hack2019PO.Controllers
             return View();
         }
 
-        public ActionResult Result(MapData data)
+        /*public ActionResult Result(MapData data)
         {
             VoteDistrict vd = new VoteDistrict();
 
             return View(vd);
+        }*/
+        public ActionResult Result()
+        {
+            return View();
         }
     }
 }
