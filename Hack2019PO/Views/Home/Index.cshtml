@@ -8,6 +8,8 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8"/>
+    <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <title>Index</title>
@@ -36,6 +38,28 @@
             position:relative;
             
         }
+        header{
+            display:flex;
+            background-color: #CCC;
+        }
+        header a{
+            display:block;
+            flex:1;
+            text-align:center;
+            padding: 15px 10px;
+            color: black;
+            font-size: 1.5em;
+        }
+        header a:hover{
+            background-color: #BBB;
+            color: black;
+        }
+        main{
+            background-color: red;
+        }
+        aside{
+            background-color:blue;
+        }
 
     </style>
 </head>
@@ -49,7 +73,7 @@
        
         
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
+            <ol class="carousel-indicators" style="z-index:100;">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
@@ -69,8 +93,19 @@
 
 
     </div>
-
-    @Html.ActionLink("Search", "Index", "Map/");
+    <header>
+        @Html.ActionLink("Search", "Index", "Map/")
+    </header>
+    <div style="display:flex;">
+        <main style="flex:3;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia ullamcorper metus nec ultricies. Cras eu leo eu elit placerat scelerisque. Pellentesque est justo, semper vitae mi nec, porta lacinia urna. Aenean velit nibh, consequat at pulvinar a, tempus non nibh. Aliquam commodo nunc sit amet ipsum dignissim volutpat. Curabitur in eros nisi. Aliquam maximus convallis rutrum.
+            Proin nec semper elit. Ut vehicula massa quis porta maximus. Integer imperdiet velit sit amet consectetur blandit. Morbi id ligula ac purus egestas pharetra. Sed laoreet sapien elementum euismod interdum. Proin dignissim pretium gravida. Phasellus blandit orci sed metus egestas mollis. Nullam lobortis luctus risus eu facilisis. Mauris neque quam, commodo sed velit id, viverra finibus nisl. Suspendisse potenti. Cras nibh nibh, vehicula a dapibus at, iaculis sed magna.
+        </main>
+        <aside style="flex:1;">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia ullamcorper metus nec ultricies. Cras eu leo eu elit placerat scelerisque. Pellentesque est justo, semper vitae mi nec, porta lacinia urna. Aenean velit nibh, consequat at pulvinar a, tempus non nibh. Aliquam commodo nunc sit amet ipsum dignissim volutpat. Curabitur in eros nisi. Aliquam maximus convallis rutrum.
+            Proin nec semper elit. Ut vehicula massa quis porta maximus. Integer imperdiet velit sit amet consectetur blandit. Morbi id ligula ac purus egestas pharetra. Sed laoreet sapien elementum euismod interdum. Proin dignissim pretium gravida. Phasellus blandit orci sed metus egestas mollis. Nullam lobortis luctus risus eu facilisis. Mauris neque quam, commodo sed velit id, viverra finibus nisl. Suspendisse potenti. Cras nibh nibh, vehicula a dapibus at, iaculis sed magna.
+        </aside>
+    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
