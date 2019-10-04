@@ -55,9 +55,11 @@
             color: black;
         }
         main{
-            background-color: red;
+            margin:5px 0px 5px 5px;
+            background-color: #AAA;
         }
         aside{
+            margin: 5px;
             background-color:blue;
         }
 
@@ -94,7 +96,9 @@
 
     </div>
     <header>
+        @Html.ActionLink("Home", "Index", "Home/")
         @Html.ActionLink("Search", "Index", "Map/")
+      
     </header>
     <div style="display:flex;">
         <main style="flex:3;">
