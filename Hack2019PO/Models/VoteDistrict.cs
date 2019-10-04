@@ -13,6 +13,7 @@ namespace Hack2019PO.Models
         public string DistricAddress;
         public int DistricNo;
 
+        public VoteDistrict() { }
 
         public VoteDistrict(string address, string addressno,string venue, string districtAddress, int districtNo)
         {
