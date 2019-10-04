@@ -93,10 +93,12 @@
     <div>
         @using (Html.BeginForm("Result", "Map", FormMethod.Post))
         {
+        <div style=" display:flex; align-items:center; text-align:center" >
             <p>Ulica : @Html.DropDownListFor(x => x.Address, new SelectList(Hack2019PO.Internals.OpenDataHandler.Addresses, "17. novembra"))</p>
             <p>Číslo ulice : @Html.TextBoxFor(x => x.AddressNo)</p>
             <input type="submit" value="Vyhľadať" />
-        }
+        </div>
+            }
 
     </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
