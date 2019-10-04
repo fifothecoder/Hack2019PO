@@ -9,9 +9,13 @@ namespace Hack2019PO.Controllers
 {
     public class MapController : Controller
     {
-        // GET: Map
-        [HttpGet]
         public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult Result()
         {
             return View();
         }
@@ -22,7 +26,7 @@ namespace Hack2019PO.Controllers
             VoteDistrict vd = new VoteDistrict("Ahoj", "Ahoj", "Ahoj", "Ahoj", 5);
 
 
-            return View();
+            return View("Home/Index");
         }
     }
 }
