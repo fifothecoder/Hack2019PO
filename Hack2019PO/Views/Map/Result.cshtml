@@ -61,8 +61,21 @@
       var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
       var ui = H.ui.UI.createDefault(map, defaultLayers);
      window.onload = function () {
-        moveMapToBerlin(map);
-      }
+         moveMapToBerlin(map);
+        }
+     function geocode(platform) {
+      var geocoder = platform.getGeocodingService(),
+        parameters = {
+          searchtext: 'Bajkalská 29, Presov',
+          gen: '9'};
+
+      geocoder.geocode(parameters,
+        function (result) {
+          alert(result);
+        }, function (error) {
+          alert(error);
+        });
+}
     </script>
 </body>
 </html>
