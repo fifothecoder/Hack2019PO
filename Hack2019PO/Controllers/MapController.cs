@@ -10,20 +10,19 @@ namespace Hack2019PO.Controllers
     public class MapController : Controller
     {
         // GET: Map
+        [HttpGet]
         public ActionResult Index()
         {
             return View();
         }
 
-        /*public ActionResult Result(MapData data)
+        [HttpPost]
+        public ActionResult Result(MapData data)
         {
-            VoteDistrict vd = new VoteDistrict();
+            VoteDistrict vd = new VoteDistrict("Ahoj", "Ahoj", "Ahoj", "Ahoj", 5);
+
 
             return View(vd);
-        }*/
-        public ActionResult Result()
-        {
-            return View();
         }
     }
 }
