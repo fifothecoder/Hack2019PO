@@ -100,6 +100,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Internals\OpenDataHandler.cs" />
     <Compile Include="Models\VoteDistrict.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
