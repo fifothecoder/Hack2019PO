@@ -14,19 +14,12 @@ namespace Hack2019PO.Controllers
             return View();
         }
 
-        [HttpGet]
-        public ActionResult Result()
-        {
-            return View();
-        }
-
-        [HttpPost]
         public ActionResult Result(MapData data)
         {
             VoteDistrict vd = new VoteDistrict("Ahoj", "Ahoj", "Ahoj", "Ahoj", 5);
 
 
-            return View("Home/Index");
+            return View("Result", vd);
         }
     }
 }

@@ -9,6 +9,12 @@ namespace Hack2019PO.Models
     {
         public string Address;
         public string AddressNo;
+
+        public MapData()
+        {
+
+        }
+
         public MapData(string address, string addressNo)
         {
             Address = address;
