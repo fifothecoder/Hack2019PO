@@ -111,6 +111,7 @@
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Map\Index.cshtml" />
+    <Content Include="Views\Map\Result.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
