@@ -91,6 +91,9 @@
     <Content Include="Global.asax" />
     <Content Include="images\pen.jpg" />
     <Content Include="images\people.jpg" />
+    <Content Include="images\signpost.jpg" />
+    <Content Include="images\street-map.jpg" />
+    <Content Include="images\travel.jpg" />
     <Content Include="images\vote.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>

@@ -16,8 +16,7 @@ namespace Hack2019PO.Controllers
 
         public ActionResult Result(MapData data)
         {
-            VoteDistrict vd = new VoteDistrict("Ahoj", "Ahoj", "Ahoj", "Ahoj", 5);
-
+            VoteDistrict vd = Internals.OpenDataHandler.GetDistrict("Volgogradská", "26");
 
             return View("Result", vd);
         }

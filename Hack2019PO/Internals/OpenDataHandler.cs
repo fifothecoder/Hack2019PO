@@ -41,19 +41,22 @@ namespace Hack2019PO.Internals
                     string electionType = reader.Value;
                     reader.Read();
                     if (reader.NodeType != XmlNodeType.EndElement || reader.Name != "Voľby") throw new ArgumentException("Wrong filedata " + reader.Name);
-                    
+
 
                     DumpData("Mesto", ref reader);
-                    string ulica = GetValidData("Ulica", ref reader);
-                    string orc = GetValidData("Or._č.", ref reader);
+                    string ulica = GetValidNumber("Ulica", ref reader);
+
+                    string orc = GetValidNumber("Or._č." ,ref reader);
                     DumpData("Adresa", ref reader);
-                    string nazovOkrsku = GetValidData("Názov_okrsku", ref reader);
-                    string cisloOkrsku = GetValidData("Číslo_okrsku", ref reader);
+                    string nazovOkrsku = GetValidNumber("Názov_okrsku", ref reader);
+                    string cisloOkrsku = GetValidNumber("Číslo_okrsku", ref reader);
                     DumpData("Volebná_miestnosť", ref reader);
-                    string adresaVM = GetValidData("Adresa_volebnej_miestnosti", ref reader);
+                    string adresaVM = GetValidNumber("Adresa_volebnej_miestnosti", ref reader);
                     DumpData("Zapisovateľ", ref reader);
 
-                    district = new VoteDistrict(ulica, orc, nazovOkrsku, adresaVM, int.Parse(cisloOkrsku));
+
+                    if (ulica == streetName && orc == streetNumber) 
+                        district = new VoteDistrict(ulica, orc, nazovOkrsku, adresaVM, int.Parse(cisloOkrsku));
 
                 }
             }
@@ -62,7 +65,7 @@ namespace Hack2019PO.Internals
 
 
         }
-        
+
         private static string GetValidData(string name, ref XmlReader reader)
         {
             reader.Read();
@@ -71,18 +74,45 @@ namespace Hack2019PO.Internals
             reader.Read();
             string toReturn = reader.Value;
             reader.Read();
-            if (reader.NodeType != XmlNodeType.EndElement || reader.Name != name) throw new ArgumentException("Wrong filedata " + name);
+            if (reader.NodeType != XmlNodeType.EndElement || reader.Name != name)
+                throw new ArgumentException("Wrong filedata " + name);
             return toReturn.Trim();
+        }
+
+        private static string GetValidNumber(string name, ref XmlReader reader)
+        {
+            string s = "";
+            reader.Read();
+            while (reader.NodeType == XmlNodeType.Whitespace)
+                reader.Read();
+            if(reader.NodeType != XmlNodeType.Element || reader.Name != name) throw new ArgumentException("Wrong filedata");
+            reader.Read();
+
+            if (reader.NodeType == XmlNodeType.Whitespace) 
+                return s;
+            s = reader.Value;
+            reader.Read();
+            if (reader.NodeType != XmlNodeType.EndElement || reader.Name != name)
+                throw new ArgumentException("Wrong filedata");
+
+            return s.Trim();
+
         }
 
         private static void DumpData(string name, ref XmlReader reader)
         {
+            string s = "";
             reader.Read();
-            while (reader.NodeType == XmlNodeType.Whitespace) reader.Read();
-            if (reader.NodeType != XmlNodeType.Element || reader.Name != name) throw new ArgumentException("Wrong filedata " + name);
+            while (reader.NodeType == XmlNodeType.Whitespace)
+                reader.Read();
+            if (reader.NodeType != XmlNodeType.Element || reader.Name != name) throw new ArgumentException("Wrong filedata");
             reader.Read();
+
+            if (reader.NodeType == XmlNodeType.Whitespace) return;
+                s = reader.Value;
             reader.Read();
-            if (reader.NodeType != XmlNodeType.EndElement || reader.Name != name) throw new ArgumentException("Wrong filedata " + name);
+            if (reader.NodeType != XmlNodeType.EndElement || reader.Name != name)
+                throw new ArgumentException("Wrong filedata");
         }
 
     }
