@@ -1,5 +1,4 @@
-﻿@model Hack2019PO.Models.StreetData
-@{
+﻿@{
     Layout = null;
 }
 
@@ -12,30 +11,25 @@
     <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="~/styles/custom.css">
-    <title>Volebné miestnosti</title>
+    <link href="~/styles/custom.css" rel="stylesheet" />
+    <title>Info</title>
+
 </head>
 <body>
-    <ul>
-        <img src="../../images/volb.png" alt="Alternate Text" style="max-height:42px; margin-left: 25px; margin-top:1px" />
-        <li>@Html.ActionLink("O nás", "Info")</li>
-        <li>@Html.ActionLink("Vyhľadaj poslanca PSK", "Search")</li>
-        <li class="active">@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
+    <ul style="position:fixed">
+        <liclass="active">@Html.ActionLink("O nás", "Info")</liclass="active">
+        <li>@Html.ActionLink("Vyhľadať poslanca PSK", "Search")</li>
+        <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
         <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
         <li>@Html.ActionLink("Domov", "Index")</li>
-    </ul>
-    <br /><br />
 
-    <div style="text-align:center">
-        <h3>Nájdite si najbližšiu volebnú miestnosť : </h3>
-        <form action="VotingRoom" method="POST">
-            @Html.DropDownListFor(x => x.Address, new SelectList(Hack2019PO.Internals.OpenDataHandler.Streets, Hack2019PO.Internals.OpenDataHandler.Streets[0]))
-            @Html.TextBoxFor(x => x.Number, new { @Value="1"})
-            <input type="submit" value="Vyhľadať najbližšiu volebnú miestnosť" />
-        </form>
-        <br />
-        <h3>Alebo si pozrite všetky aktuálne volebné miestnosti</h3>
-        @Html.ActionLink("Zobraziť všetky volebné miestnosti", "VotingRoom")
+    </ul>
+    <div>
+        <main style="margin:0;padding:20px;">
+            <h2>Vitajte!</h2>
+            Táto stránka bola vytvorená v ako projekt v rámci akcie 2.Šarišský hackathon študentmi tímu Microteam.</br>
+            S pomocou tejto stránky chceme občanom uľahčiť prístup k informáciám o poslancoch PSK a ich činnosti. Občania si tiež vedia vyhľadať najbližšie volebné miestnosti v ich okolí, čo im zjednoduchší proces volieb.
+        </main>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
