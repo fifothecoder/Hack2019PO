@@ -81,10 +81,17 @@ ul {
                 text-decoration: none;
             }
 
-                li a:not(.active):hover {
-                    background-color: #111;
-                    color: white;
-                }
+            li:not(.active) a:hover{
+                background-color: #111;
+                color: white;
+            }
+            li.active {
+                text-decoration: none;
+            }
+            li.active a:hover{
+                
+                color:white;
+            }
 
         .active {
             background-color: #c33046;
