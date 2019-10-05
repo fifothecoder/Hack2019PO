@@ -68,7 +68,10 @@ namespace Hack2019PO.Controllers
             VotingRoomData vrData = Internals.OpenDataHandler.GetSpecificVotingRoomFromWeb(streetData.Address, streetData.Number);
             return vrData != null ? View("VotingSpecific", vrData) : View("ResultEmpty", new AttendanceRecord() { Name = $"{streetData.Address} {streetData.Number}"});
         }
-
+        public ActionResult Info()
+        {
+            return View("Info");
+        }
         
 
     }

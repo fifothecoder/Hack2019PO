@@ -1,6 +1,7 @@
 ﻿body {
     font-family: 'Montserrat', sans-serif;
     background-color: #EEE;
+    text-shadow: 0.5px 0.5px #AAA;
 }
 
 h1.h1 {
@@ -47,7 +48,7 @@ header {
 
 main {
     margin: 5px 0px 5px 5px;
-    background-color: #AAA;
+    background-color: #DDD;
 }
 
 aside {
@@ -80,10 +81,17 @@ ul {
                 text-decoration: none;
             }
 
-                li a:hover:not(.active) {
-                    background-color: #111;
-                    color: white;
-                }
+            li:not(.active) a:hover{
+                background-color: #111;
+                color: white;
+            }
+            li a:hover{
+                text-decoration: none;
+            }
+            li.active a:hover{
+                
+                color:white;
+            }
 
         .active {
             background-color: #c33046;

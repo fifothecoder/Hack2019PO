@@ -133,6 +133,7 @@
     <Content Include="Views\Home\Statistics.cshtml" />
     <Content Include="Views\Home\VotingAll.cshtml" />
     <Content Include="Views\Home\VotingSpecific.cshtml" />
+    <Content Include="Views\Home\Info.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
