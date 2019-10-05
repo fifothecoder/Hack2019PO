@@ -70,15 +70,44 @@
             margin: 5px;
             background-color: blue;
         }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: right;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover:not(.active) {
+                    background-color: #111;
+                    color: white;
+                }
+
+        .active {
+            background-color: #c33046;
+        }
+    
     </style>
 </head>
 <body>
-    <header>
-        @Html.ActionLink("Home", "Index")
-        @Html.ActionLink("Vyhľadaj poslanca", "Search")
+    
+    <ul>
+        <li>@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li>@Html.ActionLink("Domov", "Index")</li>
 
-    </header>
-
+    </ul>
     <div>
         <table>
             <thead>
