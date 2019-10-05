@@ -127,9 +127,10 @@
 <body>
 
     <ul>
-        <li>@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li class="active">@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
+        <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
         <li>@Html.ActionLink("Domov", "Index")</li>
-
     </ul>
     <div class="hore" style="overflow-x:auto;">
         <table style="width: 700px;">
@@ -172,7 +173,7 @@
                 {
                 <tr>
                     <td >@data.Session</td>
-                    <td style="max-width:90px">@data.ProgramNumber</td>
+                    <td style="max-width:100px">@data.ProgramNumber</td>
                     <td style="max-width:400px">@data.ProgramPoint</td>
                     <td style="max-width:125px">@data.Person</td>
                     <td style="max-width:150px">@data.Note</td>

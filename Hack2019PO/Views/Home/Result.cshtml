@@ -119,11 +119,11 @@
     </style>
 </head>
 <body>
-    
+
     <ul>
-        <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "Search")</li>
-        <li>@Html.ActionLink("Štatistiky poslancov", "Search")</li>
-        <li>@Html.ActionLink("Vyhľadaj iného poslanca", "Search")</li>
+        <li class="active">@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
+        <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
         <li>@Html.ActionLink("Domov", "Index")</li>
 
     </ul>
@@ -165,13 +165,13 @@
             <tbody>
                 @foreach (var data in Model.votingRecords)
                 {
-                <tr>
-                    <td>@data.Session</td>
-                    <td>@data.ProgramNumber</td>
-                    <td style="max-width:400px">@data.ProgramPoint</td>
-                    <td style="max-width:300px">@data.Note</td>
-                    <td>@data.Vote</td>
-                </tr>
+                    <tr>
+                        <td>@data.Session</td>
+                        <td>@data.ProgramNumber</td>
+                        <td style="max-width:400px">@data.ProgramPoint</td>
+                        <td style="max-width:300px">@data.Note</td>
+                        <td>@data.Vote</td>
+                    </tr>
                 }
             </tbody>
         </table>
