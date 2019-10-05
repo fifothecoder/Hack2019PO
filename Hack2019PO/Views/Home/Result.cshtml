@@ -99,6 +99,7 @@
             background-color: #c33046;
         }
         table{
+            width: 700px;
             margin:0 auto;
             border-collapse:collapse;
         }
@@ -109,8 +110,8 @@
         thead{
             background-color: #A0A0A0;
         }
-        tr:nth-child(even) {
-            background-color: #EEE;
+        tr:nth-child(odd) {
+            background-color: #FFF;
         }
         .hore{
             margin-top:20px;
@@ -124,7 +125,7 @@
         <li>@Html.ActionLink("Domov", "Index")</li>
 
     </ul>
-    <div class="hore">
+    <div class="hore" style="overflow-x:auto;">
         <table>
             <thead>
                 <tr>
@@ -148,7 +149,7 @@
                 }
             </tbody>
         </table>
-        <br /><br /><br />
+        <br /><br />
         <table>
             <thead>
                 <tr>
