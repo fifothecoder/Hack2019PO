@@ -43,10 +43,6 @@
     </ul>
    
     <form action="CreateRoute" method="POST">
-        <input type="hidden" name="fromStreet" value=@Model.Street />
-        <input type="hidden" name="fromNumber" value=@Model.StreetNo />
-        <input id="latInput" type="hidden" name="latitude" value="nil"/>
-        <input id="lonInput" type="hidden" name="longtitude" value="nil"/>
         <input type="submit" value="Vyhľadať cestu" />
     </form>
 
@@ -55,6 +51,10 @@
         
         <table style="margin-left:100px">
             <tbody style="border: 1px double black">
+                <tr style="border-bottom: 1px solid black">
+                    <td style="font-weight:bold;border-right:1px solid black">Vaša adresa :</td>
+                    <td>@Model.Street</td>
+                </tr>
                 <tr style="border-bottom: 1px solid black">
                     <td style="font-weight:bold;border-right:1px solid black">Adresa :</td>
                     <td>@Model.DistrictAddress</td>
@@ -98,9 +98,14 @@
         }
 
                     function moveMapToBerlin(map){
-                        var latitud = @latitud, longitud =@longitud;
+                        var latitud = @latitud, longitud =@longitud; 
+
                         document.getElementById("latInput").value = latitud;
                         document.getElementById("lonInput").value = longitud;
+
+
+
+
                         map.setCenter({ lat: latitud, lng: longitud });
                         map.setZoom(16);
                     }
