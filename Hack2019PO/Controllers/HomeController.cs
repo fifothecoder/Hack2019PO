@@ -22,9 +22,10 @@ namespace Hack2019PO.Controllers
             return View("Search");
         }
 
+        [HttpPost]
         public ActionResult Search(SearchData data)
         {
-            
+            AttendanceRecord[] records = Internals.OpenDataHandler.GetAttendanceFromWeb(data.Name);
             //Return Result
             return View();
         }
