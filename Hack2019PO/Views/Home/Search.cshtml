@@ -109,24 +109,28 @@
         <li>@Html.ActionLink("Domov", "Index")</li>
 
     </ul>
-    
 
-    <div style="display:flex; justify-content:center; padding-top:50px" >
+    <h2 style="display:flex; justify-content:center; padding-top:50px">Vyhľadajte záznamy podľa mena poslanca</h2>
+    <div style="display:flex; justify-content:center; padding-top:25px">
+
         <form action="Search" method="POST">
             @Html.DropDownList("name", new SelectList(Hack2019PO.Internals.OpenDataHandler.Poslanci, Hack2019PO.Internals.OpenDataHandler.Poslanci[0]))
             <input type="submit" value="Vyhľadať poslanca" />
         </form>
+    </div>
+    <h2 style="display:flex; justify-content:center; padding-top:100px">Vyhľadajte záznamy podľa politickej strany</h2>
+    <div style="display:flex; justify-content:center; padding-top:25px">
 
         <form action="SearchParty" method="POST">
             @Html.DropDownList("party", new SelectList(Hack2019PO.Internals.OpenDataHandler.Parties, Hack2019PO.Internals.OpenDataHandler.Parties[0]))
             <input type="submit" value="Vyhľadať stranu" />
         </form>
-
-
     </div>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
 
