@@ -12,7 +12,7 @@
     <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <title>Dochádzka poslanca</title>
+    <title>@Model[0].Name</title>
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -73,12 +73,38 @@
     </style>
 </head>
 <body>
-    <h1>Dochádzka poslanca @Model.</h1>
-    <div> 
-        @foreach (var data in Model)
-        {
-            <p>@data.SessionDate, @data.Name</p>
-        }
+    <header>
+        @Html.ActionLink("Home", "Index")
+        @Html.ActionLink("Vyhľadaj poslanca", "Search")
+
+    </header>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Číšlo zasadnutia</td>
+                    <td>Dátum zasadnutia</td>
+                    <td>Poslanec</td>
+                    <td>Politická strana</td>
+                    <td>Prítomnosť</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@data.SessionID</td>
+                        <td>@data.SessionDate</td>
+                        <td>@data.Name</td>
+                        <td>@data.Party</td>
+                        <td>@data.Attended</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
+
+
