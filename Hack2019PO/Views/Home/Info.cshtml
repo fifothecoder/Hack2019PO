@@ -17,11 +17,13 @@
         .f1{
             flex:1;
             margin:2px;
+            padding:20px;
             background-color:lightgray;
             text-align:center;
         }
         .self{
             height: 200px;
+            width: 200px;
             border-radius:100%;
         }
     </style>
@@ -29,7 +31,7 @@
 <body>
     <ul>
         <img src="../../images/volb.png" alt="Alternate Text" style="max-height:42px; margin-left: 25px; margin-top:1px" />
-        <li class="active">@Html.ActionLink("O nás", "Info")</liclass="active">
+        <li class="active">@Html.ActionLink("O nás", "Info")</li>
         <li>@Html.ActionLink("Vyhľadať poslanca PSK", "Search")</li>
         <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
         <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
@@ -43,19 +45,19 @@
         <main style="margin:0;padding:20px; display:flex">
 
             <div class="f1">
-                <img src="#" class="self" alt="Alternate Text" />
+                <img src="~/images/fb.jpg" class="self" alt="Alternate Text" />
                 <h3>Filip Biľ</h3>
             </div>
             <div class="f1">
-                <img src="#" class="self" alt="Alternate Text" />
+                <img src="~/images/ak.jpg" class="self" alt="Alternate Text" />
                 <h3>Andrej Kapusta</h3>
             </div>
             <div class="f1">
-                <img src="#" class="self" alt="Alternate Text" />
+                <img src="~/images/ek.jpg" class="self" alt="Alternate Text" />
                 <h3>Elizabeth Karpukhina</h3>
             </div>
             <div class="f1">
-                <img src="#" class="self" alt="Alternate Text" />
+                <img src="~/images/mm.jpg" class="self" alt="Alternate Text" />
                 <h3>Matej Mazúr</h3>
             </div>
         </main>
