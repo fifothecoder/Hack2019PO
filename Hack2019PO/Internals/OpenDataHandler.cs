@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 using System.Web.Mvc;
-using System.Threading.Tasks;
+using System.Data.SqlClient;
 using System.Net;
 using System.IO;
 using Hack2019PO.Models;
@@ -117,9 +117,52 @@ namespace Hack2019PO.Internals
         //Now the real fun begins
         public static VotingRoomData GetSpecificVotingRoomFromWeb(string address, string number)
         {
-            
+            SqlConnection connection = null;
+            SqlCommand command = null;
+            VotingRoomData data = null;
 
-            return null;
+            try
+            {
+                using (connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ElectionVenuesDb"].ConnectionString))
+                {
+                    connection.Open();
+                    command = new SqlCommand("SELECT * FROM dbo.ElectionVenues WHERE Street=@add ", connection);
+                    command.Parameters.AddWithValue("@add", address);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            string no = reader["StreetNo"].ToString().Trim();
+                            if(no == number)    //TODO:ADD 12=12A
+                            {
+                                data = new VotingRoomData();
+                                data.ElectionType = reader["Elections"].ToString();
+                                data.City = reader["City"].ToString();
+                                data.Street = reader["Street"].ToString();
+                                data.StreetNo = reader["StreetNo"].ToString().Trim();
+
+
+                                data.District = reader["DistrictName"].ToString();
+                                data.DistrictNo = reader["DistrictNumber"].ToString();
+                                data.DistrictRoom = reader["Room"].ToString();
+                                data.DistrictAddress = reader["Address"].ToString();
+                                break;
+                            }
+                        }
+                    }
+
+                }
+            }
+            catch (Exception)
+            {
+                //TODO: Implement logging
+            } finally
+            {
+                command?.Dispose();
+                connection?.Close();
+            }
+            return data;
+            
         }
 
     }
