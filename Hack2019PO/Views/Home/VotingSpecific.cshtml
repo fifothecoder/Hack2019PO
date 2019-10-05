@@ -42,6 +42,14 @@
         <li>@Html.ActionLink("Domov", "Index")</li>
     </ul>
    
+    <form action="CreateRoute" method="POST">
+        <input type="hidden" name="fromStreet" value=@Model.Street />
+        <input type="hidden" name="fromNumber" value=@Model.StreetNo />
+        <input id="latInput" type="hidden" name="latitude" value="nil"/>
+        <input id="lonInput" type="hidden" name="longtitude" value="nil"/>
+        <input type="submit" value="Vyhľadať cestu" />
+    </form>
+
     <div class="page-header" style="margin-bottom:20px">
         <h2>Najbližšia volebná miestnosť je:</h2>
         
@@ -67,6 +75,7 @@
         </table>
     </div>
     <div id="map" style="margin: 0 auto;"></div>
+
     <script>
         @{
 
@@ -78,6 +87,7 @@
 
             var latitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Latitude"];
             var longitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Longitude"];
+            
 
                     }
 
@@ -89,6 +99,8 @@
 
                     function moveMapToBerlin(map){
                         var latitud = @latitud, longitud =@longitud;
+                        document.getElementById("latInput").value = latitud;
+                        document.getElementById("lonInput").value = longitud;
                         map.setCenter({ lat: latitud, lng: longitud });
                         map.setZoom(16);
                     }

@@ -119,6 +119,7 @@
     </Compile>
     <Compile Include="Internals\OpenDataHandler.cs" />
     <Compile Include="Internals\Prettifiers.cs" />
+    <Compile Include="Models\RouteData.cs" />
     <Compile Include="Models\SearchData.cs" />
     <Compile Include="Models\AttendanceRecord.cs" />
     <Compile Include="Models\StreetData.cs" />
@@ -139,6 +140,7 @@
     <Content Include="Views\Home\VotingAll.cshtml" />
     <Content Include="Views\Home\VotingSpecific.cshtml" />
     <Content Include="Views\Home\Info.cshtml" />
+    <Content Include="Views\Home\Route.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
