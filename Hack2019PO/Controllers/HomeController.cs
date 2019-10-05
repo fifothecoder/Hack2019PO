@@ -19,7 +19,7 @@ namespace Hack2019PO.Controllers
         public ActionResult Search()
         {
             //Return search window
-            return View();
+            return View("Search");
         }
 
         public ActionResult Search(SearchData data)

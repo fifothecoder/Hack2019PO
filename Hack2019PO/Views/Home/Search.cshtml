@@ -8,72 +8,79 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <meta charset="utf-8"/>
+    <meta charset="utf-8" />
     <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <title>Úvodná stránka</title>
+    <title>Vyhľadaj poslanca</title>
     <style>
         body {
             font-family: 'Nunito', sans-serif;
             background-color: #EEE;
         }
-        h1.h1{
+
+        h1.h1 {
             margin: 0 auto;
             border-radius: 5px;
             font-size: 3em;
         }
-        img{
-            max-height:60vh;
+
+        img {
+            max-height: 60vh;
             object-fit: cover;
         }
-        div.square{
+
+        div.square {
             width: 400px;
             height: 300px;
             background-color: rgba(255,255,255,0.5);
-            z-index:100;
-            border:20px solid white;
-        }
-        div.flexin{
-            position:relative;
-            
-        }
-        header{
-            display:flex;
-            background-color: #CCC;
-        }
-        header a{
-            display:block;
-            flex:1;
-            text-align:center;
-            padding: 15px 10px;
-            color: black;
-            font-size: 1.5em;
-        }
-        header a:hover{
-            background-color: #BBB;
-            color: black;
-        }
-        main{
-            margin:5px 0px 5px 5px;
-            background-color: #AAA;
-        }
-        aside{
-            margin: 5px;
-            background-color:blue;
+            z-index: 100;
+            border: 20px solid white;
         }
 
+        div.flexin {
+            position: relative;
+        }
+
+        header {
+            display: flex;
+            background-color: #CCC;
+        }
+
+            header a {
+                display: block;
+                flex: 1;
+                text-align: center;
+                padding: 15px 10px;
+                color: black;
+                font-size: 1.5em;
+            }
+
+                header a:hover {
+                    background-color: #BBB;
+                    color: black;
+                }
+
+        main {
+            margin: 5px 0px 5px 5px;
+            background-color: #AAA;
+        }
+
+        aside {
+            margin: 5px;
+            background-color: blue;
+        }
     </style>
 </head>
 <body>
     <div class="flexin">
         <div style="background-color:rgba(0,0,0,0.75); height:100%;width:100%; z-index:50;position:absolute; display:flex; justify-content:center;align-items:center;">
             <div style="position: absolute; display:flex; align-items:center; text-align:center" class="square">
-                <h1 class="h1">Komunikácia <br/> občan - mesto</h1>
+                <h1 class="h1">Komunikácia <br /> občan - mesto</h1>
             </div>
         </div>
-       
-        
+
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators" style="z-index:100;">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -95,24 +102,10 @@
 
 
     </div>
-    <header>
-        @Html.ActionLink("Home", "Index")
-        @Html.ActionLink("Vyhľadaj poslanca", "Search")
-      
-    </header>
-    <div style="display:flex;">
-        <main style="flex:3;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia ullamcorper metus nec ultricies. Cras eu leo eu elit placerat scelerisque. Pellentesque est justo, semper vitae mi nec, porta lacinia urna. Aenean velit nibh, consequat at pulvinar a, tempus non nibh. Aliquam commodo nunc sit amet ipsum dignissim volutpat. Curabitur in eros nisi. Aliquam maximus convallis rutrum.
-            Proin nec semper elit. Ut vehicula massa quis porta maximus. Integer imperdiet velit sit amet consectetur blandit. Morbi id ligula ac purus egestas pharetra. Sed laoreet sapien elementum euismod interdum. Proin dignissim pretium gravida. Phasellus blandit orci sed metus egestas mollis. Nullam lobortis luctus risus eu facilisis. Mauris neque quam, commodo sed velit id, viverra finibus nisl. Suspendisse potenti. Cras nibh nibh, vehicula a dapibus at, iaculis sed magna.
-        </main>
-        <aside style="flex:1;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia ullamcorper metus nec ultricies. Cras eu leo eu elit placerat scelerisque. Pellentesque est justo, semper vitae mi nec, porta lacinia urna. Aenean velit nibh, consequat at pulvinar a, tempus non nibh. Aliquam commodo nunc sit amet ipsum dignissim volutpat. Curabitur in eros nisi. Aliquam maximus convallis rutrum.
-            Proin nec semper elit. Ut vehicula massa quis porta maximus. Integer imperdiet velit sit amet consectetur blandit. Morbi id ligula ac purus egestas pharetra. Sed laoreet sapien elementum euismod interdum. Proin dignissim pretium gravida. Phasellus blandit orci sed metus egestas mollis. Nullam lobortis luctus risus eu facilisis. Mauris neque quam, commodo sed velit id, viverra finibus nisl. Suspendisse potenti. Cras nibh nibh, vehicula a dapibus at, iaculis sed magna.
-        </aside>
-    </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
+
