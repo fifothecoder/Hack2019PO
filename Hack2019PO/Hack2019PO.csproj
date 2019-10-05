@@ -89,10 +89,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="images\location.png" />
+    <Content Include="images\map.jpg" />
     <Content Include="images\pen.jpg" />
     <Content Include="images\people.jpg" />
     <Content Include="images\signpost.jpg" />
     <Content Include="images\street-map.jpg" />
+    <Content Include="images\survey.jpg" />
     <Content Include="images\travel.jpg" />
     <Content Include="images\vote.jpg" />
     <Content Include="Web.config" />
@@ -100,21 +103,17 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Internals\OpenDataHandler.cs" />
-    <Compile Include="Models\MapData.cs" />
-    <Compile Include="Models\VoteDistrict.cs" />
+    <Compile Include="Models\SearchData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="Views\Map\Index.cshtml" />
-    <Content Include="Views\Map\Result.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
