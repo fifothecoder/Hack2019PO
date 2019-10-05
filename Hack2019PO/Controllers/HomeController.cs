@@ -1,7 +1,7 @@
 ﻿using Hack2019PO.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -25,9 +25,12 @@ namespace Hack2019PO.Controllers
         [HttpPost]
         public ActionResult Search(string name)
         {
-            AttendanceRecord[] records = Internals.OpenDataHandler.GetAttendanceFromWeb(name);
-            //Return Result
-            return records != null ? View("Result", records) : View("ResultEmpty", new AttendanceRecord() { Name = name});
+            AttendanceRecord[] attendanceRecordTask = Internals.OpenDataHandler.GetAttendanceFromWeb(name);
+            VotingRecord[] votingRecordTask = Internals.OpenDataHandler.GetVotingFromWeb(name);
+
+            SearchData data = new SearchData(attendanceRecordTask, votingRecordTask);
+            return (data.attendanceRecords == null && data.votingRecords == null) ? View("ResultEmpty", new AttendanceRecord() { Name = name}) : View("Result", data);
         }
+
     }
 }

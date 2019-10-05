@@ -63,17 +63,51 @@
             background-color:blue;
         }
 
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: right;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover:not(.active) {
+                    background-color: #111;
+                    color: white;
+                }
+
+        .active {
+            background-color: #c33046;
+        }
+    
     </style>
 </head>
 <body>
+    <ul>
+        <li>@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li class="active">@Html.ActionLink("Domov", "Index")</li>
+
+    </ul>
     <div class="flexin">
         <div style="background-color:rgba(0,0,0,0.75); height:100%;width:100%; z-index:50;position:absolute; display:flex; justify-content:center;align-items:center;">
             <div style="position: absolute; display:flex; align-items:center; text-align:center" class="square">
-                <h1 class="h1">Komunikácia <br/> občan - mesto</h1>
+                <h1 class="h1">Komunikácia <br /> občan - mesto</h1>
             </div>
         </div>
-       
-        
+
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators" style="z-index:100;">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -98,8 +132,6 @@
     <header>
         @Html.ActionLink("Home", "Index")
         @Html.ActionLink("Vyhľadaj poslanca", "Search")
-        @Html.ActionLink("Štatistiky poslancov", "Search")
-        @Html.ActionLink("Vyhľadaj volebnú miestnosť", "Search")
 
     </header>
     <div style="display:flex;">

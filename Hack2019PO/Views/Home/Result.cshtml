@@ -1,4 +1,4 @@
-﻿@model Hack2019PO.Models.AttendanceRecord[]
+﻿@model Hack2019PO.Models.SearchData
 @{
     Layout = null;
 }
@@ -12,7 +12,7 @@
     <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <title>@Model[0].Name</title>
+    <title>@Model.attendanceRecords[0].Name</title>
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -70,16 +70,62 @@
             margin: 5px;
             background-color: blue;
         }
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: right;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover:not(.active) {
+                    background-color: #111;
+                    color: white;
+                }
+
+        .active {
+            background-color: #c33046;
+        }
+        table{
+            width: 700px;
+            margin:0 auto;
+            border-collapse:collapse;
+        }
+        table, th, td {
+            border: 1px solid black;
+            padding: 2px 4px;
+        }
+        thead{
+            background-color: #A0A0A0;
+        }
+        tr:nth-child(odd) {
+            background-color: #FFF;
+        }
+        .hore{
+            margin-top:20px;
+        }
     </style>
 </head>
 <body>
-    <header>
-        @Html.ActionLink("Home", "Index")
-        @Html.ActionLink("Vyhľadaj iného poslanca", "Search")
+    
+    <ul>
+        <li>@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li>@Html.ActionLink("Domov", "Index")</li>
 
-    </header>
-
-    <div>
+    </ul>
+    <div class="hore" style="overflow-x:auto;">
         <table>
             <thead>
                 <tr>
@@ -91,7 +137,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var data in Model)
+                @foreach (var data in Model.attendanceRecords)
                 {
                     <tr>
                         <td>@data.SessionID</td>
@@ -103,6 +149,31 @@
                 }
             </tbody>
         </table>
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <td>Zasadnutie</td>
+                    <td>Číslo bodu programu</td>
+                    <td>Bod programu</td>
+                    <td>Poznámka</td>
+                    <td>Poslanec</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model.votingRecords)
+                {
+                <tr>
+                    <td>@data.Session</td>
+                    <td>@data.ProgramNumber</td>
+                    <td style="max-width:400px">@data.ProgramPoint</td>
+                    <td style="max-width:300px">@data.Note</td>
+                    <td>@data.Vote</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
     </div>
 </body>
 </html>
