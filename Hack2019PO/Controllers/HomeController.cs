@@ -58,7 +58,8 @@ namespace Hack2019PO.Controllers
         [HttpGet]
         public ActionResult VotingRoom()
         {
-            return View("VotingAll");
+            VotingRoomData[] vrData = Internals.OpenDataHandler.GetAllVotingRoomsFromWeb();
+            return View("VotingAll", vrData);
         }
 
         [HttpPost]
