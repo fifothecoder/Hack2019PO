@@ -23,11 +23,11 @@ namespace Hack2019PO.Controllers
         }
 
         [HttpPost]
-        public ActionResult Search(SearchData data)
+        public ActionResult Search(string name)
         {
-            AttendanceRecord[] records = Internals.OpenDataHandler.GetAttendanceFromWeb(data.Name);
+            AttendanceRecord[] records = Internals.OpenDataHandler.GetAttendanceFromWeb(name);
             //Return Result
-            return View();
+            return View("Result", records);
         }
     }
 }

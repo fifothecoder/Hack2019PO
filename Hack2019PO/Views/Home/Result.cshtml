@@ -1,4 +1,4 @@
-﻿
+﻿@model Hack2019PO.Models.AttendanceRecord[]
 @{
     Layout = null;
 }
@@ -12,6 +12,10 @@
 </head>
 <body>
     <div> 
+        @foreach (var data in Model)
+        {
+            <p>@data.SessionDate, @data.Name</p>
+        }
     </div>
 </body>
 </html>

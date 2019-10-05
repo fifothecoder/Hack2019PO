@@ -10,7 +10,6 @@ namespace Hack2019PO.Models
         public string Name;
         public SearchData()
         {
-            Name = "NOT_DEFINED";
         }
     }
 }
