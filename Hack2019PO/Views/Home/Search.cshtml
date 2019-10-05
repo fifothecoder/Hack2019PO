@@ -13,99 +13,13 @@
     <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="~/styles/custom.css" rel="stylesheet" />
     <title>Vyhľadaj poslanca</title>
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #EEE;
-        }
-
-        h1.h1 {
-            margin: 0 auto;
-            border-radius: 5px;
-            font-size: 3em;
-        }
-
-        img {
-            max-height: 60vh;
-            object-fit: cover;
-        }
-
-        div.square {
-            width: 400px;
-            height: 300px;
-            background-color: rgba(255,255,255,0.5);
-            z-index: 100;
-            border: 20px solid white;
-        }
-
-        div.flexin {
-            position: relative;
-        }
-
-        header {
-            display: flex;
-            background-color: #CCC;
-        }
-
-            header a {
-                display: block;
-                flex: 1;
-                text-align: center;
-                padding: 15px 10px;
-                color: black;
-                font-size: 1.5em;
-            }
-
-                header a:hover {
-                    background-color: #BBB;
-                    color: black;
-                }
-
-        main {
-            margin: 5px 0px 5px 5px;
-            background-color: #AAA;
-        }
-
-        aside {
-            margin: 5px;
-            background-color: blue;
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: right;
-        }
-
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-                li a:hover:not(.active) {
-                    background-color: #111;
-                    color: white;
-                }
-
-        .active {
-            background-color: #c33046;
-        }
     
-    </style>
 </head>
 <body onload="initialize()">
     <ul>
-        <img src="../../images/volb.png" alt="Alternate Text" style="height:49px; margin-left: 25px; margin-top:2px" />
+        <img src="../../images/volb.png" alt="Alternate Text" style="max-height:42px; margin-left: 25px; margin-top:1px" />
         <li class="active">@Html.ActionLink("Vyhľadaj poslanca PSK", "Search")</li>
         <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
         <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
