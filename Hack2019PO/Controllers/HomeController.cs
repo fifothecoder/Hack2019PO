@@ -46,7 +46,13 @@ namespace Hack2019PO.Controllers
         [HttpGet]
         public ActionResult LookupVoting()
         {
+            return View("LookupVotingRooms");
+        }
 
+        [HttpGet]
+        public ActionResult Statistics()
+        {
+            return View("Statistics");
         }
 
     }
