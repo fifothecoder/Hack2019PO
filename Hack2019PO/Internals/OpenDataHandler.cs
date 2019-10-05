@@ -117,13 +117,7 @@ namespace Hack2019PO.Internals
         //Now the real fun begins
         public static VotingRoomData GetSpecificVotingRoomFromWeb(string address, string number)
         {
-            using (StreamReader reader = new StreamReader(Properties.Resources.Zoznam))
-            {
-                while (!reader.EndOfStream)
-                {
-                    string line = reader.ReadLine();
-                }
-            }
+            
 
             return null;
         }
