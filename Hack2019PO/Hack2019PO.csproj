@@ -94,6 +94,7 @@
     <Content Include="Global.asax" />
     <Content Include="images\ak.jpg" />
     <Content Include="images\ek.jpg" />
+    <Content Include="images\email.svg" />
     <Content Include="images\fb.jpg" />
     <Content Include="images\location.png" />
     <Content Include="images\map.jpg" />
