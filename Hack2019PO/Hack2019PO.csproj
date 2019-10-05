@@ -98,6 +98,7 @@
     <Content Include="images\survey.jpg" />
     <Content Include="images\travel.jpg" />
     <Content Include="images\vol.png" />
+    <Content Include="images\volb.png" />
     <Content Include="images\vote.jpg" />
     <Content Include="styles\custom.css" />
     <Content Include="Web.config" />
