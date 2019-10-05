@@ -98,6 +98,7 @@
     <Content Include="images\survey.jpg" />
     <Content Include="images\travel.jpg" />
     <Content Include="images\vote.jpg" />
+    <Content Include="styles\custom.css" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -121,6 +122,8 @@
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\ResultEmpty.cshtml" />
     <Content Include="Views\Home\ResultParty.cshtml" />
+    <Content Include="Views\Home\LookupVotingRooms.cshtml" />
+    <Content Include="Views\Home\Statistics.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

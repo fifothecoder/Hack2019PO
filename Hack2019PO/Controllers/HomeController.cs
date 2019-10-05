@@ -40,7 +40,19 @@ namespace Hack2019PO.Controllers
             VotingRecord[] votingRecordTask = Internals.OpenDataHandler.GetVotingPartyFromWeb(party);
 
             SearchData data = new SearchData(attendanceRecordTask, votingRecordTask);
-            return (data.attendanceRecords == null && data.votingRecords == null) ? View("ResultPartyEmpty", new AttendanceRecord() { Name = party }) : View("ResultParty", data);
+            return (data.attendanceRecords == null && data.votingRecords == null) ? View("ResultEmpty", new AttendanceRecord() { Name = party }) : View("ResultParty", data);
+        }
+
+        [HttpGet]
+        public ActionResult LookupVoting()
+        {
+            return View("LookupVotingRooms");
+        }
+
+        [HttpGet]
+        public ActionResult Statistics()
+        {
+            return View("Statistics");
         }
 
     }
