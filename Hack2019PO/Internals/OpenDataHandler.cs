@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using System.Configuration;
+using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 using Hack2019PO.Models;
@@ -26,7 +26,7 @@ namespace Hack2019PO.Internals
         {
             List<AttendanceRecord> records = new List<AttendanceRecord>();
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.po-kraj.sk/sk/e-sluzby/zastupitelstvo/dochadzka-poslancov-zasadnutia-zastupitelstva/?d-2452262-e=1&6578706f7274=1");
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse) req.GetResponse();
 
             StreamReader sr = new StreamReader(resp.GetResponseStream());
             while (!sr.EndOfStream)
@@ -44,7 +44,7 @@ namespace Hack2019PO.Internals
         {
             List<VotingRecord> records = new List<VotingRecord>();
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.po-kraj.sk/sk/e-sluzby/zastupitelstvo/hlasovanie-poslancov-zastupitelstva/zoznam-hlasovani-poslancov.html?d-2452262-e=1&filterBtn=Odosla%C5%A5&f_firstname$wildlike=&d-2452262-p=11&f_year=2019&f_surname$wildlike=&f_n_sitting=&6578706f7274=1");
-            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+            HttpWebResponse resp = (HttpWebResponse) req.GetResponse();
 
             StreamReader sr = new StreamReader(resp.GetResponseStream());
             while (!sr.EndOfStream)
