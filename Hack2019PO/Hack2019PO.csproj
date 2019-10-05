@@ -140,7 +140,6 @@
     <Content Include="Views\Home\VotingAll.cshtml" />
     <Content Include="Views\Home\VotingSpecific.cshtml" />
     <Content Include="Views\Home\Info.cshtml" />
-    <Content Include="Views\Home\Route.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

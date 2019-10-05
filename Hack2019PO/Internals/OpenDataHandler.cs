@@ -228,7 +228,8 @@ namespace Hack2019PO.Internals
                 connection.Close();
                 command.Dispose();
             }
-            finalData.OrderBy(p => p.DistrictNo);
+
+            finalData.Sort((x, y) => int.Parse(x.DistrictNo).CompareTo(int.Parse(y.DistrictNo)));
             return finalData.ToArray();
 
         }
