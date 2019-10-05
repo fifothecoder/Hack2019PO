@@ -92,8 +92,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="images\ak.jpg" />
+    <Content Include="images\ek.jpg" />
+    <Content Include="images\fb.jpg" />
     <Content Include="images\location.png" />
     <Content Include="images\map.jpg" />
+    <Content Include="images\mm.jpg" />
     <Content Include="images\pen.jpg" />
     <Content Include="images\people.jpg" />
     <Content Include="images\signpost.jpg" />

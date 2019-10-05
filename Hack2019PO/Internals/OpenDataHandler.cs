@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
-using System.Web.Mvc;
+using System.Linq;
 using System.Data.SqlClient;
 using System.Net;
 using System.IO;
@@ -9,6 +8,12 @@ using Hack2019PO.Models;
 
 namespace Hack2019PO.Internals
 {
+    public struct AddressNumberStruct
+    {
+        public string Address;
+        public string Number;
+    }
+
     public static class OpenDataHandler
     {
 
@@ -117,6 +122,9 @@ namespace Hack2019PO.Internals
         //Now the real fun begins
         public static VotingRoomData GetSpecificVotingRoomFromWeb(string address, string number)
         {
+            address.Replace('ň', 'n');      //Hotfix databázy
+            address.Replace('č', 'c');
+
             SqlConnection connection = null;
             SqlCommand command = null;
             VotingRoomData data = null;
@@ -147,7 +155,7 @@ namespace Hack2019PO.Internals
                                 data.DistrictRoom = reader["Room"].ToString();
                                 data.DistrictAddress = reader["RoomAddress"].ToString();
                                 data.ContactPerson = reader["Noter"].ToString();
-                                break;
+                                return data;
                             }
                         }
                     }
@@ -164,6 +172,65 @@ namespace Hack2019PO.Internals
             }
             return data;
             
+        }
+
+        public static VotingRoomData[] GetAllVotingRoomsFromWeb()
+        {
+            SqlConnection connection = null;
+            SqlConnection innerConnection = null;
+            SqlCommand command = null;
+            List<VotingRoomData> finalData = null;
+            try
+            {
+                using (connection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ElectionVenuesDb"].ConnectionString))
+                {
+                    connection.Open();
+                    command = new SqlCommand("SELECT DISTINCT DistrictName FROM ElectionVenues", connection);
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        finalData = new List<VotingRoomData>();
+                        while (reader.Read())
+                        {
+                            using (innerConnection = new SqlConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ElectionVenuesDb"].ConnectionString))
+                            {
+                                innerConnection.Open();
+                                command = new SqlCommand("SELECT TOP 1 * FROM ElectionVenues WHERE DistrictName=@dn", innerConnection);
+                                command.Parameters.AddWithValue("@dn", reader["DistrictName"].ToString());
+                                using (SqlDataReader red = command.ExecuteReader())
+                                {
+                                    red.Read();
+                                    VotingRoomData data = new VotingRoomData();
+                                    data.ElectionType = red["Elections"].ToString();
+                                    data.City = red["City"].ToString();
+                                    data.Street = red["Address"].ToString();
+                                    data.StreetNo = red["StreetNo"].ToString().Trim();
+
+                                    data.District = red["DistrictName"].ToString();
+                                    data.DistrictNo = red["DistrictNumber"].ToString();
+                                    data.DistrictRoom = red["Room"].ToString();
+                                    data.DistrictAddress = red["RoomAddress"].ToString();
+                                    data.ContactPerson = red["Noter"].ToString();
+                                    finalData.Add(data);
+                                }
+                                innerConnection.Close();
+                            }
+                            
+                        }
+                    }
+                }
+
+            }
+            catch (Exception e)
+            {
+                //TODO:Logging
+            } finally
+            {
+                connection.Close();
+                command.Dispose();
+            }
+            finalData.OrderBy(p => p.DistrictNo);
+            return finalData.ToArray();
+
         }
 
     }
