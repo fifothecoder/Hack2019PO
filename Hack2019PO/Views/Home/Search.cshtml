@@ -1,4 +1,4 @@
-﻿@model Hack2019PO.Models.SearchData
+﻿@model string
 
 @{
     Layout = null;
@@ -141,7 +141,7 @@
 
     <div style="display:flex; justify-content:center">
         <form action="Search" method="POST">
-            <input type="text" name="name" />
+            @Html.DropDownList("name", new SelectList(Hack2019PO.Internals.OpenDataHandler.Poslanci, "Anna Schlosserová"))
             <input type="submit" value="Vyhľadať" />
         </form>
     </div>
