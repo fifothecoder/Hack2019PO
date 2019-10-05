@@ -87,7 +87,17 @@
 
             var latitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Latitude"];
             var longitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Longitude"];
-            
+
+            string address2 = Model.Street + "," + Model.StreetNo + ",Presov";
+             var url2 = "https://geocoder.api.here.com/6.2/geocode.json?searchtext=" + address2 + "&app_id=QQ7qQvWNBIMf1tTonjwJ&app_code=HLkILqXj0dk3ERV_7NNDeg&gen=8";
+             var json2 = new WebClient().DownloadString(url2);
+             var x2 = Newtonsoft.Json.Linq.JObject.Parse(json2);
+             var  success2 = x2["success"];
+
+             var latitud2 = x2["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Latitude"];
+             var longitud2 = x2["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Longitude"];
+            string lat2 = latitud2.ToString();
+            string lon2 = longitud2.ToString();
 
                     }
 
@@ -143,15 +153,16 @@
             window.onload = function () {
                 moveMapToBerlin(map);
                 addMarkersToMap(map);
-        }
+            }
                     // Create the parameters for the routing request:
             var routingParameters = {
               // The routing mode:
               'mode': 'fastest;car',
                 // The start point of the route:
-                'waypoint0': 'geo!'.concat('30.15', ',', '13.404954'),
+
+              'waypoint0': 'geo!'.concat(@latitud, ',', @longitud),
               // The end point of the route:
-              'waypoint1': 'geo!'.concat(@latitud,',',@longitud),
+              'waypoint1': 'geo!'.concat(@latitud2,',',@longitud2),
               // To retrieve the shape of the route we choose the route
               // representation mode 'display'
               'representation': 'display'
