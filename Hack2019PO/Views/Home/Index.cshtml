@@ -66,14 +66,19 @@
     </style>
 </head>
 <body>
+    <header>
+        @Html.ActionLink("Home", "Index")
+        @Html.ActionLink("Vyhľadaj poslanca", "Search")
+
+    </header>
     <div class="flexin">
         <div style="background-color:rgba(0,0,0,0.75); height:100%;width:100%; z-index:50;position:absolute; display:flex; justify-content:center;align-items:center;">
             <div style="position: absolute; display:flex; align-items:center; text-align:center" class="square">
-                <h1 class="h1">Komunikácia <br/> občan - mesto</h1>
+                <h1 class="h1">Komunikácia <br /> občan - mesto</h1>
             </div>
         </div>
-       
-        
+
+
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators" style="z-index:100;">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -98,8 +103,7 @@
     <header>
         @Html.ActionLink("Home", "Index")
         @Html.ActionLink("Vyhľadaj poslanca", "Search")
-        @Html.ActionLink("Vyhľadaj volebnú miestnosť", "Search")
-
+      
     </header>
     <div style="display:flex;">
         <main style="flex:3;">
