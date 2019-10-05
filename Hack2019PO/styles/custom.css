@@ -1,5 +1,5 @@
 ﻿body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #EEE;
 }
 
@@ -15,11 +15,11 @@ img {
 }
 
 div.square {
-    width: 400px;
+    width: 600px;
     height: 300px;
     background-color: rgba(255,255,255,0.5);
     z-index: 100;
-    border: 20px solid white;
+    border: 10px solid rgb(195,48,70);
 }
 
 div.flexin {
@@ -56,6 +56,8 @@ aside {
 }
 
 ul {
+    position: sticky;
+    z-index: 200;
     list-style-type: none;
     margin: 0;
     padding: 0;
@@ -68,10 +70,11 @@ li {
 }
 
     li a {
+        font-size: 1.25em;
         display: block;
         color: white;
         text-align: center;
-        padding: 14px 16px;
+        padding: 7px 16px;
         text-decoration: none;
     }
 
