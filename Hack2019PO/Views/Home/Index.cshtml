@@ -10,93 +10,15 @@
     <meta charset="utf-8"/>
     <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="~/styles/custom.css" rel="stylesheet" />
     <title>Úvodná stránka</title>
-    <style>
-        body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #EEE;
-        }
-        h1.h1{
-            margin: 0 auto;
-            border-radius: 5px;
-            font-size: 3em;
-        }
-        img{
-            max-height:60vh;
-            object-fit: cover;
-        }
-        div.square{
-            width: 600px;
-            height: 300px;
-            background-color: rgba(255,255,255,0.5);
-            z-index:100;
-            border:10px solid rgb(195,48,70);
-        }
-        div.flexin{
-            position:relative;
-            
-        }
-        header{
-            display:flex;
-            background-color: #CCC;
-        }
-        header a{
-            display:block;
-            flex:1;
-            text-align:center;
-            padding: 15px 10px;
-            color: black;
-            font-size: 1.5em;
-        }
-        header a:hover{
-            background-color: #BBB;
-            color: black;
-        }
-        main{
-            margin:5px 0px 5px 5px;
-            background-color: #AAA;
-        }
-        aside{
-            margin: 5px;
-            background-color:blue;
-        }
-
-        ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            overflow: hidden;
-            background-color: #333;
-        }
-
-        li {
-            float: right;
-        }
-
-            li a {
-                display: block;
-                color: white;
-                text-align: center;
-                padding: 14px 16px;
-                text-decoration: none;
-            }
-
-                li a:hover:not(.active) {
-                    background-color: #111;
-                    color: white;
-                }
-
-        .active {
-            background-color: #c33046;
-        }
     
-    </style>
 </head>
 <body>
     <ul>
 
-        <li>@Html.ActionLink("Vyhľadaj poslanca PSK", "Search")</li>
+        <li>@Html.ActionLink("Vyhľadať poslanca PSK", "Search")</li>
         <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
         <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
         <li class="active">@Html.ActionLink("Domov", "Index")</li>
@@ -105,7 +27,7 @@
     <div class="flexin">
         <div style="background-color:rgba(0,0,0,0.75); height:100%;width:100%; z-index:50;position:absolute; display:flex; justify-content:center;align-items:center;">
             <div style="position: absolute; display:flex; align-items:center; text-align:center" class="square">
-                <img src="../../images/vol.png" alt="Alternate Text" style="width:600px; margin: 20px 0px 0px 20px"/>
+                <img src="../../images/vol.png" alt="Alternate Text" style="width:570px; margin: 20px 0px 0px 0px"/>
             </div>
         </div>
 
@@ -124,23 +46,20 @@
                     <img class="d-block w-100" src="../../images/people.jpg" alt="Second slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="../../images/vote.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="../../images/survey.jpg" alt="Third slide">
                 </div>
             </div>
         </div>
 
 
     </div>
-    <div style="display:flex;">
-        <main style="flex:3;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia ullamcorper metus nec ultricies. Cras eu leo eu elit placerat scelerisque. Pellentesque est justo, semper vitae mi nec, porta lacinia urna. Aenean velit nibh, consequat at pulvinar a, tempus non nibh. Aliquam commodo nunc sit amet ipsum dignissim volutpat. Curabitur in eros nisi. Aliquam maximus convallis rutrum.
-            Proin nec semper elit. Ut vehicula massa quis porta maximus. Integer imperdiet velit sit amet consectetur blandit. Morbi id ligula ac purus egestas pharetra. Sed laoreet sapien elementum euismod interdum. Proin dignissim pretium gravida. Phasellus blandit orci sed metus egestas mollis. Nullam lobortis luctus risus eu facilisis. Mauris neque quam, commodo sed velit id, viverra finibus nisl. Suspendisse potenti. Cras nibh nibh, vehicula a dapibus at, iaculis sed magna.
+    <div >
+        <main style="margin:0 12.5%">
+            <h2>Vitajte!</h2>
+            Táto stránka bola vytvorená v ako projekt v rámci akcie 2.Šarišský hackathon študentmi tímu Microteam.</br>
+            S pomocou tejto stránky chceme občanom uľahčiť prístup k informáciám o poslancoch PSK a ich činnosti. Občania si tiež vedia vyhľadať najbližšie volebné miestnosti v ich okolí, čo im zjednoduchší proces volieb.
         </main>
-        <aside style="flex:1;">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia ullamcorper metus nec ultricies. Cras eu leo eu elit placerat scelerisque. Pellentesque est justo, semper vitae mi nec, porta lacinia urna. Aenean velit nibh, consequat at pulvinar a, tempus non nibh. Aliquam commodo nunc sit amet ipsum dignissim volutpat. Curabitur in eros nisi. Aliquam maximus convallis rutrum.
-            Proin nec semper elit. Ut vehicula massa quis porta maximus. Integer imperdiet velit sit amet consectetur blandit. Morbi id ligula ac purus egestas pharetra. Sed laoreet sapien elementum euismod interdum. Proin dignissim pretium gravida. Phasellus blandit orci sed metus egestas mollis. Nullam lobortis luctus risus eu facilisis. Mauris neque quam, commodo sed velit id, viverra finibus nisl. Suspendisse potenti. Cras nibh nibh, vehicula a dapibus at, iaculis sed magna.
-        </aside>
-    </div>
+</div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
