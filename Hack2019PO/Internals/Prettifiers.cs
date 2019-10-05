@@ -5,10 +5,8 @@ using System.Web;
 
 namespace Hack2019PO.Internals
 {
-    public class Prettifiers
+    public static class Prettifiers
     {
-
-
         public static List<string> PartiesPrettified { get; } = new List<string>() { "KDH/SaS/OĽaNO/NOVA", "Nezaradený poslanec", "Smer-SD", "SNS", "Úsvit"};
 
         public static string PrettifyPartyName(string input)

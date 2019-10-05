@@ -97,6 +97,8 @@
     <Content Include="images\street-map.jpg" />
     <Content Include="images\survey.jpg" />
     <Content Include="images\travel.jpg" />
+    <Content Include="images\vol.png" />
+    <Content Include="images\volb.png" />
     <Content Include="images\vote.jpg" />
     <Content Include="styles\custom.css" />
     <Content Include="Web.config" />
@@ -111,7 +113,9 @@
     <Compile Include="Internals\Prettifiers.cs" />
     <Compile Include="Models\SearchData.cs" />
     <Compile Include="Models\AttendanceRecord.cs" />
+    <Compile Include="Models\StreetData.cs" />
     <Compile Include="Models\VotingRecord.cs" />
+    <Compile Include="Models\VotingRoomData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -122,8 +126,10 @@
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\ResultEmpty.cshtml" />
     <Content Include="Views\Home\ResultParty.cshtml" />
-    <Content Include="Views\Home\LookupVotingRooms.cshtml" />
+    <Content Include="Views\Home\VotingStart.cshtml" />
     <Content Include="Views\Home\Statistics.cshtml" />
+    <Content Include="Views\Home\VotingAll.cshtml" />
+    <Content Include="Views\Home\VotingSpecific.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

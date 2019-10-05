@@ -46,7 +46,7 @@ namespace Hack2019PO.Controllers
         [HttpGet]
         public ActionResult LookupVoting()
         {
-            return View("LookupVotingRooms");
+            return View("VotingStart");
         }
 
         [HttpGet]
@@ -54,6 +54,21 @@ namespace Hack2019PO.Controllers
         {
             return View("Statistics");
         }
+        
+        [HttpGet]
+        public ActionResult VotingRoom()
+        {
+            return View("VotingAll");
+        }
+
+        [HttpPost]
+        public ActionResult VotingRoom(StreetData streetData)
+        {
+            VotingRoomData vrData = Internals.OpenDataHandler.GetSpecificVotingRoomFromWeb(streetData.Address, streetData.Number);
+            return View("VotingSpecific");
+        }
+
+        
 
     }
 }
