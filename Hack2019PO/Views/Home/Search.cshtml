@@ -118,7 +118,7 @@
         </form>
 
         <form action="SearchParty" method="POST">
-            @Html.DropDownList("party", new SelectList(Hack2019PO.Internals.OpenDataHandler.Parties, Hack2019PO.Internals.OpenDataHandler.Parties[0]))
+            @Html.DropDownList("party", new SelectList(Hack2019PO.Internals.Prettifiers.PartiesPrettified, Hack2019PO.Internals.Prettifiers.PartiesPrettified[0]))
             <input type="submit" value="Vyhľadať stranu" />
         </form>
 

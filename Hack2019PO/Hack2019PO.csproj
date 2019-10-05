@@ -107,6 +107,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Internals\OpenDataHandler.cs" />
+    <Compile Include="Internals\Prettifiers.cs" />
     <Compile Include="Models\SearchData.cs" />
     <Compile Include="Models\AttendanceRecord.cs" />
     <Compile Include="Models\VotingRecord.cs" />

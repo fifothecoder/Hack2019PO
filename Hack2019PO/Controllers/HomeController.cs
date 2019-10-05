@@ -35,6 +35,7 @@ namespace Hack2019PO.Controllers
         [HttpPost]
         public ActionResult SearchParty(string party)
         {
+            party = Internals.Prettifiers.DeprettifyPartyName(party);
             AttendanceRecord[] attendanceRecordTask = Internals.OpenDataHandler.GetAttendancePartyFromWeb(party);
             VotingRecord[] votingRecordTask = Internals.OpenDataHandler.GetVotingPartyFromWeb(party);
 
