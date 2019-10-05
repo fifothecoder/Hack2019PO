@@ -63,7 +63,7 @@ namespace Hack2019PO.Internals
                                                  Party = data[5], Vote = data[6]});
             }
 
-
+            records.Reverse();
             return (records.Count > 0) ? records.ToArray() : null;
         }
 
