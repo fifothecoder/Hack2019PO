@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Web;
-using System.Web.Mvc;
+using System.Linq;
 using System.Data.SqlClient;
 using System.Net;
 using System.IO;
@@ -229,6 +228,7 @@ namespace Hack2019PO.Internals
                 connection.Close();
                 command.Dispose();
             }
+            finalData.OrderBy(p => p.DistrictNo);
             return finalData.ToArray();
 
         }
