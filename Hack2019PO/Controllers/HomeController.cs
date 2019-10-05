@@ -43,5 +43,11 @@ namespace Hack2019PO.Controllers
             return (data.attendanceRecords == null && data.votingRecords == null) ? View("ResultEmpty", new AttendanceRecord() { Name = party }) : View("ResultParty", data);
         }
 
+        [HttpGet]
+        public ActionResult LookupVoting()
+        {
+
+        }
+
     }
 }
