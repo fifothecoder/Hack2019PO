@@ -13,11 +13,18 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="~/styles/custom.css" rel="stylesheet" />
     <title>Info</title>
-
+    <style>
+        .f1{
+            flex:1;
+            margin:2px;
+            background-color:lightgray;
+        }
+    </style>
 </head>
 <body>
     <ul style="position:fixed">
-        <liclass="active">@Html.ActionLink("O nás", "Info")</liclass="active">
+        <img src="../../images/volb.png" alt="Alternate Text" style="max-height:42px; margin-left: 25px; margin-top:1px" />
+        <li class="active">@Html.ActionLink("O nás", "Info")</liclass="active">
         <li>@Html.ActionLink("Vyhľadať poslanca PSK", "Search")</li>
         <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
         <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
@@ -25,10 +32,14 @@
 
     </ul>
     <div>
-        <main style="margin:0;padding:20px;">
+        <main style="margin:0;padding:20px; display:flex">
             <h2>Vitajte!</h2>
             Táto stránka bola vytvorená v ako projekt v rámci akcie 2.Šarišský hackathon študentmi tímu Microteam.</br>
             S pomocou tejto stránky chceme občanom uľahčiť prístup k informáciám o poslancoch PSK a ich činnosti. Občania si tiež vedia vyhľadať najbližšie volebné miestnosti v ich okolí, čo im zjednoduchší proces volieb.
+            <div class="f1"></div>
+            <div class="f1"></div>
+            <div class="f1"></div>
+            <div class="f1"></div>
         </main>
     </div>
 
