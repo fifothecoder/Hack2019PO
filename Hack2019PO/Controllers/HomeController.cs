@@ -72,6 +72,13 @@ namespace Hack2019PO.Controllers
         {
             return View("Info");
         }
+
+        public ActionResult CreateRoute(string fromStreet, string fromNumber, string latitude, string longtitude)
+        {
+            string temp = fromStreet + ", " + fromNumber + ", Presov"; 
+            RouteData data = new RouteData() { FromAddress = temp, Latitude = latitude, Longtitude = longtitude};
+            return View("Route", data);
+        }
         
     }
 }
