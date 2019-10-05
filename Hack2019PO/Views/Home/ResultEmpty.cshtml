@@ -99,13 +99,14 @@
 </head>
 <body>
     <ul>
-        <li class="active">@Html.ActionLink("Vyhľadať poslanca PSK", "Search")</li>
+        <img src="../../images/volb.png" alt="Alternate Text" style="max-height:42px; margin-left: 25px; margin-top:1px" />
+        <li>@Html.ActionLink("Vyhľadať poslanca PSK", "Search")</li>
         <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
         <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
         <li>@Html.ActionLink("Domov", "Index")</li>
     </ul>
-    <div>
-        <h1 style="align-content:center">Ľutujeme, ale vami hľadaný objekt @Model.Name nebol nájdený :(</h1>
+    <div style"width:*">
+        <h1 style="text-align:center; padding-top:150px">Ľutujeme, ale vami hľadaný objekt @Model.Name nebol nájdený :(</h1>
     </div>
 </body>
 </html>
