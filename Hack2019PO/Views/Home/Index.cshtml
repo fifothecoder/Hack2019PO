@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = null;
 }
 
@@ -96,13 +95,10 @@
 </head>
 <body>
     <ul>
-
-        <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "Search")</li>
-        <li>@Html.ActionLink("Štatistiky poslancov", "Search")</li>
-        <li>@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
         <li class="active">@Html.ActionLink("Domov", "Index")</li>
-
-
+        <li>@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
+        <li>@Html.ActionLink("Štatistiky poslancov", "Search")</li>
     </ul>
     <div class="flexin">
         <div style="background-color:rgba(0,0,0,0.75); height:100%;width:100%; z-index:50;position:absolute; display:flex; justify-content:center;align-items:center;">
@@ -133,11 +129,6 @@
 
 
     </div>
-    <header>
-        @Html.ActionLink("Home", "Index")
-        @Html.ActionLink("Vyhľadaj poslanca", "Search")
-
-    </header>
     <div style="display:flex;">
         <main style="flex:3;">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut lacinia ullamcorper metus nec ultricies. Cras eu leo eu elit placerat scelerisque. Pellentesque est justo, semper vitae mi nec, porta lacinia urna. Aenean velit nibh, consequat at pulvinar a, tempus non nibh. Aliquam commodo nunc sit amet ipsum dignissim volutpat. Curabitur in eros nisi. Aliquam maximus convallis rutrum.

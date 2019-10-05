@@ -1,4 +1,4 @@
-﻿@model string
+﻿@model Hack2019PO.Models.SearchData
 
 @{
     Layout = null;
@@ -13,7 +13,7 @@
     <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <title>Vyhľadaj poslanca</title>
+    <title>Dáta strany @Model.attendanceRecords[0].Party</title>
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -100,39 +100,88 @@
         .active {
             background-color: #c33046;
         }
-    
+
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 2px 4px;
+        }
+
+        thead {
+            background-color: #A0A0A0;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #FFF;
+        }
+
+        .hore {
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
+
     <ul>
-        <li>@Html.ActionLink("Vyhľadať volebnú miestnosť", "Search")</li>
-        <li>@Html.ActionLink("Štatistiky poslancov", "Search")</li>
-        <li class="active">@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li>@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
         <li>@Html.ActionLink("Domov", "Index")</li>
 
     </ul>
+    <div class="hore" style="overflow-x:auto;">
+        <table style="width: 700px;">
+            <thead>
+                <tr>
+                    <td>Číšlo zasadnutia</td>
+                    <td>Dátum zasadnutia</td>
+                    <td>Poslanec</td>
+                    <td>Politická strana</td>
+                    <td>Prítomnosť</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model.attendanceRecords)
+                {
+                    <tr>
+                        <td>@data.SessionID</td>
+                        <td>@data.SessionDate</td>
+                        <td>@data.Name</td>
+                        <td>@Hack2019PO.Internals.Prettifiers.PrettifyPartyName(data.Party)</td>
+                        <td>@data.Attended</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br /><br />
+        <table style="max-width:900px">
+            <thead>
+                <tr>
+                    <td>Zasadnutie</td>
+                    <td>Číslo bodu programu</td>
+                    <td>Bod programu</td>
+                    <td>Meno poslanca</td>
+                    <td>Poznámka</td>
+                    <td>Hlasoval</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model.votingRecords)
+                {
+                <tr>
+                    <td >@data.Session</td>
+                    <td style="max-width:90px">@data.ProgramNumber</td>
+                    <td style="max-width:400px">@data.ProgramPoint</td>
+                    <td style="max-width:125px">@data.Person</td>
+                    <td style="max-width:150px">@data.Note</td>
+                    <td>@data.Vote</td>
+                </tr>
+                }
+            </tbody>
+        </table>
 
-    <h2 style="display:flex; justify-content:center; padding-top:50px">Vyhľadajte záznamy podľa mena poslanca</h2>
-    <div style="display:flex; justify-content:center; padding-top:25px">
-
-        <form action="Search" method="POST">
-            @Html.DropDownList("name", new SelectList(Hack2019PO.Internals.OpenDataHandler.Poslanci, Hack2019PO.Internals.OpenDataHandler.Poslanci[0]))
-            <input type="submit" value="Vyhľadať poslanca" />
-        </form>
     </div>
-    <h2 style="display:flex; justify-content:center; padding-top:100px">Vyhľadajte záznamy podľa politickej strany</h2>
-    <div style="display:flex; justify-content:center; padding-top:25px">
-
-        <form action="SearchParty" method="POST">
-            @Html.DropDownList("party", new SelectList(Hack2019PO.Internals.Prettifiers.PartiesPrettified, Hack2019PO.Internals.Prettifiers.PartiesPrettified[0]))
-            <input type="submit" value="Vyhľadať stranu" />
-        </form>
-    </div>
-
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 </html>
-

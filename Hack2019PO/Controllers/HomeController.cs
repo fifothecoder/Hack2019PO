@@ -32,5 +32,22 @@ namespace Hack2019PO.Controllers
             return (data.attendanceRecords == null && data.votingRecords == null) ? View("ResultEmpty", new AttendanceRecord() { Name = name}) : View("Result", data);
         }
 
+        [HttpPost]
+        public ActionResult SearchParty(string party)
+        {
+            party = Internals.Prettifiers.DeprettifyPartyName(party);
+            AttendanceRecord[] attendanceRecordTask = Internals.OpenDataHandler.GetAttendancePartyFromWeb(party);
+            VotingRecord[] votingRecordTask = Internals.OpenDataHandler.GetVotingPartyFromWeb(party);
+
+            SearchData data = new SearchData(attendanceRecordTask, votingRecordTask);
+            return (data.attendanceRecords == null && data.votingRecords == null) ? View("ResultEmpty", new AttendanceRecord() { Name = party }) : View("ResultParty", data);
+        }
+
+        [HttpGet]
+        public ActionResult LookupVoting()
+        {
+
+        }
+
     }
 }
