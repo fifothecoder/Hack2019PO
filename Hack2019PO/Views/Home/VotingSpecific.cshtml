@@ -44,7 +44,6 @@
    
     <div class="page-header" style="margin-bottom:20px">
         <h2>Najbližšia volebná miestnosť je:</h2>
-        
         <table style="margin-left:100px">
             <tbody style="border: 1px double black">
                 <tr style="border-bottom: 1px solid black">
@@ -133,14 +132,12 @@
                 addMarkersToMap(map);
         }
 
-        var longi = "50.5";
-        var lati = "12.25";
                     // Create the parameters for the routing request:
             var routingParameters = {
               // The routing mode:
               'mode': 'fastest;car',
                 // The start point of the route:
-                'waypoint0': 'geo!'.concat(@latitud,',',@longitud),
+                'waypoint0': 'geo!'.concat('40.25', ',','12.5'),
               // The end point of the route:
               'waypoint1': 'geo!'.concat(@latitud,',',@longitud),
               // To retrieve the shape of the route we choose the route
