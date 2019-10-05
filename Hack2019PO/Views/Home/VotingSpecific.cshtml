@@ -47,41 +47,54 @@
     </div>
     <div id="map" style="margin: 0 auto;"></div>
     <script>
-        @{ 
-            var json = new WebClient().DownloadString("https://geocoder.api.here.com/6.2/geocode.json?searchtext=200%20S%20Mathilda%20Sunnyvale%20CA&app_id=QQ7qQvWNBIMf1tTonjwJ&app_code=HLkILqXj0dk3ERV_7NNDeg&gen=8");
-            var x = Newtonsoft.Json.Linq.JObject.Parse(json);
-            var  success = x["success"];
+        @{
+                        
+                        var address = "Volgogradska,26,Presov";
+                        var url = "https://geocoder.api.here.com/6.2/geocode.json?searchtext=" + address + "&app_id=QQ7qQvWNBIMf1tTonjwJ&app_code=HLkILqXj0dk3ERV_7NNDeg&gen=8";
+                        var json = new WebClient().DownloadString(url);
+                        var x = Newtonsoft.Json.Linq.JObject.Parse(json);
+                        var  success = x["success"];
 
-            var latitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Latitude"];
-            var longitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Longitude"];
+                        var latitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Latitude"];
+                        var longitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Longitude"];
 
+                    }
+
+        function addMarkersToMap(map) {
+            var latitu = @latitud, longitu =@longitud;
+            var parisMarker = new H.map.Marker({ lat: latitu, lng: longitu });
+            map.addObject(parisMarker);
         }
 
-      function moveMapToBerlin(map){
-          var latitud = @latitud, longitud =@longitud;
-          map.setCenter({ lat: latitud, lng: longitud });
-        map.setZoom(14);
-      }
+                    function moveMapToBerlin(map){
+                        var latitud = @latitud, longitud =@longitud;
+                        map.setCenter({ lat: latitud, lng: longitud });
+                        map.setZoom(16);
+                    }
 
-      /**
-       * Boilerplate map initialization code starts below:
-       */
+                    /**
+                     * Boilerplate map initialization code starts below:
+                     */
 
-      //Step 1: initialize communication with the platform
-      // In your own code, replace variable window.apikey with your own apikey
-      var platform = new H.service.Platform({
+                    //Step 1: initialize communication with the platform
+                    // In your own code, replace variable window.apikey with your own apikey
+                    var platform = new H.service.Platform({
         apikey: "1auuJz0Im2EVxgiNnjFylMRR2lVPXv-D0KHR8jCarcY"
 
       });
-      var defaultLayers = platform.createDefaultLayers();
+        var defaultLayers = platform.createDefaultLayers();
+        
 
-      //Step 2: initialize a map - this map is centered over Europe
-      var map = new H.Map(document.getElementById('map'),
-        defaultLayers.vector.normal.map,{
-        center: {lat:50, lng:5},
+                //Step 2: initialize a map - this map is centered over Europe
+                var map = new H.Map(document.getElementById('map'),
+                  defaultLayers.vector.normal.map,{
+
+                  center: {lat:50, lng:5},
         zoom: 4,
         pixelRatio: window.devicePixelRatio || 1
-      });
+                });
+        
+
       // add a resize listener to make sure that the map occupies the whole container
       window.addEventListener('resize', () => map.getViewPort().resize());
 
@@ -90,13 +103,15 @@
       // Behavior implements default interactions for pan/zoom (also on mobile touch environments)
       var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
 
-      // Create the default UI components
-      var ui = H.ui.UI.createDefault(map, defaultLayers);
+            // Create the default UI components
+            var ui = H.ui.UI.createDefault(map, defaultLayers);
 
-      // Now use the map as required...
-      window.onload = function () {
-          moveMapToBerlin(map);
-      }
+            // Now use the map as required...
+            window.onload = function () {
+                moveMapToBerlin(map);
+                addMarkersToMap(map);
+        }
+    
     </script>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
