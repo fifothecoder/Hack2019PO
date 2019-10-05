@@ -1,4 +1,4 @@
-﻿@model Hack2019PO.Models.AttendanceRecord[]
+﻿@model Hack2019PO.Models.SearchData
 @{
     Layout = null;
 }
@@ -12,7 +12,7 @@
     <meta />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
-    <title>@Model[0].Name</title>
+    <title>@Model.attendanceRecords[0].Name</title>
     <style>
         body {
             font-family: 'Nunito', sans-serif;
@@ -91,7 +91,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach (var data in Model)
+                @foreach (var data in Model.attendanceRecords)
                 {
                     <tr>
                         <td>@data.SessionID</td>
@@ -103,6 +103,31 @@
                 }
             </tbody>
         </table>
+        <br /><br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <td>Zasadnutie</td>
+                    <td>Číslo bodu programu</td>
+                    <td>Bod programu</td>
+                    <td>Poznámka</td>
+                    <td>Poslanec</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model.votingRecords)
+                {
+                <tr>
+                    <td>@data.Session</td>
+                    <td>@data.ProgramNumber</td>
+                    <td style="max-width:400px">@data.ProgramPoint</td>
+                    <td style="max-width:300px">@data.Note</td>
+                    <td>@data.Vote</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
     </div>
 </body>
 </html>

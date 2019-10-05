@@ -25,9 +25,16 @@ namespace Hack2019PO.Controllers
         [HttpPost]
         public ActionResult Search(string name)
         {
-            AttendanceRecord[] records = Internals.OpenDataHandler.GetAttendanceFromWeb(name);
+            AttendanceRecord[] attendanceRecord = Internals.OpenDataHandler.GetAttendanceFromWeb(name);
+            VotingRecord[] votingRecords = Internals.OpenDataHandler.GetVotingFromWeb(name);
+
+            SearchData result = new SearchData(attendanceRecord, votingRecords);
+
             //Return Result
-            return records != null ? View("Result", records) : View("ResultEmpty", new AttendanceRecord() { Name = name});
+            return (attendanceRecord != null || votingRecords != null) ? View("Result", result) : View("ResultEmpty", new AttendanceRecord() { Name = name});
         }
+
+
+
     }
 }

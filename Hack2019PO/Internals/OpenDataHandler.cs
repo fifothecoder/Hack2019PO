@@ -24,7 +24,7 @@ namespace Hack2019PO.Internals
 
         public static AttendanceRecord[] GetAttendanceFromWeb(string name)
         {
-            List<AttendanceRecord> attendances = new List<AttendanceRecord>();
+            List<AttendanceRecord> records = new List<AttendanceRecord>();
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.po-kraj.sk/sk/e-sluzby/zastupitelstvo/dochadzka-poslancov-zasadnutia-zastupitelstva/?d-2452262-e=1&6578706f7274=1");
             HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
 
@@ -34,10 +34,30 @@ namespace Hack2019PO.Internals
                 var data = sr.ReadLine().Split(',');
                 if (data.Length != 5 || data[2] != name) 
                     continue;
-                attendances.Add(new AttendanceRecord() { SessionID = data[0], SessionDate = data[1], Name = data[2], Party = data[3], Attended = data[4]});
+                records.Add(new AttendanceRecord() { SessionID = data[0], SessionDate = data[1], Name = data[2], Party = data[3], Attended = data[4]});
             }
 
-            return (attendances.Count > 0) ? attendances.ToArray() : null;
+            return (records.Count > 0) ? records.ToArray() : null;
+        }
+
+        public static VotingRecord[] GetVotingFromWeb(string name)
+        {
+            List<VotingRecord> records = new List<VotingRecord>();
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("https://www.po-kraj.sk/sk/e-sluzby/zastupitelstvo/hlasovanie-poslancov-zastupitelstva/zoznam-hlasovani-poslancov.html?d-2452262-e=1&filterBtn=Odosla%C5%A5&f_firstname$wildlike=&d-2452262-p=11&f_year=2019&f_surname$wildlike=&f_n_sitting=&6578706f7274=1");
+            HttpWebResponse resp = (HttpWebResponse)req.GetResponse();
+
+            StreamReader sr = new StreamReader(resp.GetResponseStream());
+            while (!sr.EndOfStream)
+            {
+                var data = sr.ReadLine().Split(',');
+                if (data.Length != 7 || data[4] != name)
+                    continue;
+                records.Add(new VotingRecord() { Session = data[0], ProgramNumber = data[1], ProgramPoint = data[2], Note = data[3], Person = data[4],
+                                                 Party = data[5], Vote = data[6]});
+            }
+
+
+            return (records.Count > 0) ? records.ToArray() : null;
         }
 
     }

@@ -109,6 +109,7 @@
     <Compile Include="Internals\OpenDataHandler.cs" />
     <Compile Include="Models\SearchData.cs" />
     <Compile Include="Models\AttendanceRecord.cs" />
+    <Compile Include="Models\VotingRecord.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
