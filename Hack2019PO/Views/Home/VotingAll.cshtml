@@ -14,6 +14,24 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="~/styles/custom.css">
     <title>Volebné miestnosti</title>
+    <style>
+        .pr{
+            width:150px;
+        }
+        table{
+            margin: 0 auto;
+        }
+        .tr{
+            display:inline-block;
+        }
+        .fr{
+            width:100%;
+            text-align:center;
+        }
+        table tr{
+            text-align:left;
+        }
+    </style>
 </head>
 <body>
     <ul>
@@ -24,29 +42,29 @@
         <li>@Html.ActionLink("Domov", "Index")</li>
     </ul>
 
-    <div style="margin-top:30px">
+    <div style="margin-top:30px" class="fr">
         @foreach (var room in Model)
         {
-            <div style="margin-bottom:30px">
+            <div style="margin-bottom:30px" class="tr">
                 <table style="border:3px double black;width:600px">
                     <tr style="border-bottom:1px solid black">
-                        <td style="border-right:1px solid black;text-align:right">Číslo okrsku :</td>
+                        <td style="border-right:1px solid black;text-align:right" class="pr">Číslo okrsku :</td>
                         <td>@room.DistrictNo</td>
                     </tr>
                     <tr style="border-bottom:1px solid black">
-                        <td style="border-right:1px solid black;text-align:right">Adresa budovy :</td>
+                        <td style="border-right:1px solid black;text-align:right" class="pr">Adresa budovy :</td>
                         <td>@room.DistrictAddress</td>
                     </tr>
                     <tr style="border-bottom:1px solid black">
-                        <td style="border-right:1px solid black;text-align:right">Názov budovy :</td>
+                        <td style="border-right:1px solid black;text-align:right" class="pr">Názov budovy :</td>
                         <td>@room.DistrictRoom</td>
                     </tr>
                     <tr style="border-bottom:1px solid black">
-                        <td style="border-right:1px solid black;text-align:right">Mesto :</td>
+                        <td style="border-right:1px solid black;text-align:right" class="pr">Mesto :</td>
                         <td>@room.City</td>
                     </tr>
                     <tr style="border-bottom:1px solid black">
-                        <td style="border-right:1px solid black;text-align:right">Kontaktná osoba :</td>
+                        <td style="border-right:1px solid black;text-align:right" class="pr">Kontaktná osoba :</td>
                         <td>@room.ContactPerson</td>
                     </tr>
                 </table>
