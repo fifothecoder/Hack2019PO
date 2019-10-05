@@ -1,0 +1,188 @@
+﻿@model Hack2019PO.Models.SearchData
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="utf-8" />
+    <meta />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <title>Dáta strany @Model.attendanceRecords[0].Party</title>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #EEE;
+        }
+
+        h1.h1 {
+            margin: 0 auto;
+            border-radius: 5px;
+            font-size: 3em;
+        }
+
+        img {
+            max-height: 60vh;
+            object-fit: cover;
+        }
+
+        div.square {
+            width: 400px;
+            height: 300px;
+            background-color: rgba(255,255,255,0.5);
+            z-index: 100;
+            border: 20px solid white;
+        }
+
+        div.flexin {
+            position: relative;
+        }
+
+        header {
+            display: flex;
+            background-color: #CCC;
+        }
+
+            header a {
+                display: block;
+                flex: 1;
+                text-align: center;
+                padding: 15px 10px;
+                color: black;
+                font-size: 1.5em;
+            }
+
+                header a:hover {
+                    background-color: #BBB;
+                    color: black;
+                }
+
+        main {
+            margin: 5px 0px 5px 5px;
+            background-color: #AAA;
+        }
+
+        aside {
+            margin: 5px;
+            background-color: blue;
+        }
+
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li {
+            float: right;
+        }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+                li a:hover:not(.active) {
+                    background-color: #111;
+                    color: white;
+                }
+
+        .active {
+            background-color: #c33046;
+        }
+
+        table {
+            width: 700px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+            padding: 2px 4px;
+        }
+
+        thead {
+            background-color: #A0A0A0;
+        }
+
+        tr:nth-child(odd) {
+            background-color: #FFF;
+        }
+
+        .hore {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul>
+        <li>@Html.ActionLink("Vyhľadaj poslanca", "Search")</li>
+        <li>@Html.ActionLink("Domov", "Index")</li>
+
+    </ul>
+    <div class="hore" style="overflow-x:auto;">
+        <table>
+            <thead>
+                <tr>
+                    <td>Číšlo zasadnutia</td>
+                    <td>Dátum zasadnutia</td>
+                    <td>Poslanec</td>
+                    <td>Politická strana</td>
+                    <td>Prítomnosť</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model.attendanceRecords)
+                {
+                    <tr>
+                        <td>@data.SessionID</td>
+                        <td>@data.SessionDate</td>
+                        <td>@data.Name</td>
+                        <td>@data.Party</td>
+                        <td>@data.Attended</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br /><br />
+        <table>
+            <thead>
+                <tr>
+                    <td>Zasadnutie</td>
+                    <td>Číslo bodu programu</td>
+                    <td>Bod programu</td>
+                    <td>Meno poslanca</td>
+                    <td>Poznámka</td>
+                    <td>Hlasoval</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model.votingRecords)
+                {
+                <tr>
+                    <td>@data.Session</td>
+                    <td>@data.ProgramNumber</td>
+                    <td style="max-width:400px">@data.ProgramPoint</td>
+                    <td>@data.Person</td>
+                    <td style="max-width:300px">@data.Note</td>
+                    <td>@data.Vote</td>
+                </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>

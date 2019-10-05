@@ -119,6 +119,7 @@
     <Content Include="Views\Home\Search.cshtml" />
     <Content Include="Views\Home\Result.cshtml" />
     <Content Include="Views\Home\ResultEmpty.cshtml" />
+    <Content Include="Views\Home\ResultParty.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
