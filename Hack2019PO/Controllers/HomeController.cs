@@ -73,6 +73,5 @@ namespace Hack2019PO.Controllers
             return View("Info");
         }
         
-
     }
 }
