@@ -157,7 +157,7 @@
             </tbody>
         </table>
         <br /><br />
-        <table style="min-width:700px">
+        <table style="max-width:900px">
             <thead>
                 <tr>
                     <td>Zasadnutie</td>
@@ -172,9 +172,9 @@
                 @foreach (var data in Model.votingRecords)
                 {
                 <tr>
-                    <td>@data.Session</td>
-                    <td>@data.ProgramNumber</td>
-                    <td style="max-width:400px">@data.ProgramPoint</td>
+                    <td >@data.Session</td>
+                    <td style="max-width: 100px">@data.ProgramNumber</td>
+                    <td style="width: 200px">@data.ProgramPoint</td>
                     <td style="max-width:250px">@data.Person</td>
                     <td style="max-width:250px">@data.Note</td>
                     <td>@data.Vote</td>
