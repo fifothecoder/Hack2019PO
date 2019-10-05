@@ -36,7 +36,6 @@
 <body>
     <ul>
         <img src="../../images/volb.png" alt="Alternate Text" style="height:49px; margin-left: 25px; margin-top:2px" />
-        <li>@Html.ActionLink("O nás", "Info")</li>
         <li>@Html.ActionLink("Vyhľadaj poslanca PSK", "Search")</li>
         <li class="active">@Html.ActionLink("Vyhľadať volebnú miestnosť", "LookupVoting")</li>
         <li>@Html.ActionLink("Štatistiky poslancov", "Statistics")</li>
@@ -44,8 +43,7 @@
     </ul>
    
     <div class="page-header" style="margin-bottom:20px">
-        <h2>Najbližšia volebná miestnosť je:</h2>Najbližšia>
-        
+        <h2>Najbližšia volebná miestnosť je:</h2>
         <table style="margin-left:100px">
             <tbody style="border: 1px double black">
                 <tr style="border-bottom: 1px solid black">
@@ -134,14 +132,12 @@
                 addMarkersToMap(map);
         }
 
-        var longi = "50.5";
-        var lati = "12.25";
                     // Create the parameters for the routing request:
             var routingParameters = {
               // The routing mode:
               'mode': 'fastest;car',
                 // The start point of the route:
-                'waypoint0': 'geo!'.concat(@latitud,',',@longitud),
+                'waypoint0': 'geo!'.concat('40.25', ',','12.5'),
               // The end point of the route:
               'waypoint1': 'geo!'.concat(@latitud,',',@longitud),
               // To retrieve the shape of the route we choose the route
