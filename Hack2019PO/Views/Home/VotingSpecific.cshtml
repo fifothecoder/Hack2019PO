@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Hack2019PO.Models.VotingRoomData
+@{
     Layout = null;
 }
 
@@ -43,20 +44,40 @@
    
     <div class="page-header">
         <h1>Najbližšia volebná miestnosť je:</h1>
-        <p>miesto volebnej miestnosti</p>
+        
+        <table style="margin-left:100px">
+            <tbody style="border: 1px double black">
+                <tr style="border-bottom: 1px solid black">
+                    <td style="font-weight:bold;border-right:1px solid black">Adresa :</td>
+                    <td>@Model.DistrictAddress</td>
+                </tr>
+                <tr style="border-bottom: 1px solid black">
+                    <td style="font-weight:bold;border-right:1px solid black">Číslo okrsku :</td>
+                    <td>@Model.DistrictNo</td>
+                </tr>
+                <tr style="border-bottom: 1px solid black">
+                    <td style="font-weight:bold;border-right:1px solid black">Volebná miestnosť :</td>
+                    <td>@Model.District</td>
+                </tr>
+                <tr>
+                    <td style="font-weight:bold;border-right:1px solid black">Zodpovedná osoba :</td>
+                    <td>@Model.ContactPerson</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div id="map" style="margin: 0 auto;"></div>
     <script>
         @{
-                        
-                        var address = "Volgogradska,26,Presov";
-                        var url = "https://geocoder.api.here.com/6.2/geocode.json?searchtext=" + address + "&app_id=QQ7qQvWNBIMf1tTonjwJ&app_code=HLkILqXj0dk3ERV_7NNDeg&gen=8";
-                        var json = new WebClient().DownloadString(url);
-                        var x = Newtonsoft.Json.Linq.JObject.Parse(json);
-                        var  success = x["success"];
 
-                        var latitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Latitude"];
-                        var longitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Longitude"];
+            var address = $"{Model.DistrictAddress}, {Model.City}";
+            var url = "https://geocoder.api.here.com/6.2/geocode.json?searchtext=" + address + "&app_id=QQ7qQvWNBIMf1tTonjwJ&app_code=HLkILqXj0dk3ERV_7NNDeg&gen=8";
+            var json = new WebClient().DownloadString(url);
+            var x = Newtonsoft.Json.Linq.JObject.Parse(json);
+            var  success = x["success"];
+
+            var latitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Latitude"];
+            var longitud = x["Response"]["View"][0]["Result"][0]["Location"]["MapView"]["TopLeft"]["Longitude"];
 
                     }
 

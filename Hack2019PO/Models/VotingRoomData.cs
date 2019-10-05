@@ -15,6 +15,7 @@ namespace Hack2019PO.Models
         public string DistrictNo { get; set; }
         public string DistrictRoom { get; set; }
         public string DistrictAddress { get; set; }
+        public string ContactPerson { get; set; }
 
     }
 }

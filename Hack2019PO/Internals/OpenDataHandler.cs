@@ -138,14 +138,15 @@ namespace Hack2019PO.Internals
                                 data = new VotingRoomData();
                                 data.ElectionType = reader["Elections"].ToString();
                                 data.City = reader["City"].ToString();
-                                data.Street = reader["Street"].ToString();
+                                data.Street = reader["Address"].ToString();
                                 data.StreetNo = reader["StreetNo"].ToString().Trim();
 
 
                                 data.District = reader["DistrictName"].ToString();
                                 data.DistrictNo = reader["DistrictNumber"].ToString();
                                 data.DistrictRoom = reader["Room"].ToString();
-                                data.DistrictAddress = reader["Address"].ToString();
+                                data.DistrictAddress = reader["RoomAddress"].ToString();
+                                data.ContactPerson = reader["Noter"].ToString();
                                 break;
                             }
                         }
