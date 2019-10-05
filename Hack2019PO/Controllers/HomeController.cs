@@ -27,7 +27,7 @@ namespace Hack2019PO.Controllers
         {
             AttendanceRecord[] records = Internals.OpenDataHandler.GetAttendanceFromWeb(name);
             //Return Result
-            return View("Result", records);
+            return records != null ? View("Result", records) : View("ResultEmpty", new AttendanceRecord() { Name = name});
         }
     }
 }

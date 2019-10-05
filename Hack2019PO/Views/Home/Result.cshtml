@@ -8,14 +8,103 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Result</title>
+    <meta charset="utf-8" />
+    <meta />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <title>@Model[0].Name</title>
+    <style>
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #EEE;
+        }
+
+        h1.h1 {
+            margin: 0 auto;
+            border-radius: 5px;
+            font-size: 3em;
+        }
+
+        img {
+            max-height: 60vh;
+            object-fit: cover;
+        }
+
+        div.square {
+            width: 400px;
+            height: 300px;
+            background-color: rgba(255,255,255,0.5);
+            z-index: 100;
+            border: 20px solid white;
+        }
+
+        div.flexin {
+            position: relative;
+        }
+
+        header {
+            display: flex;
+            background-color: #CCC;
+        }
+
+            header a {
+                display: block;
+                flex: 1;
+                text-align: center;
+                padding: 15px 10px;
+                color: black;
+                font-size: 1.5em;
+            }
+
+                header a:hover {
+                    background-color: #BBB;
+                    color: black;
+                }
+
+        main {
+            margin: 5px 0px 5px 5px;
+            background-color: #AAA;
+        }
+
+        aside {
+            margin: 5px;
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
-    <div> 
-        @foreach (var data in Model)
-        {
-            <p>@data.SessionDate, @data.Name</p>
-        }
+    <header>
+        @Html.ActionLink("Home", "Index")
+        @Html.ActionLink("Vyhľadaj poslanca", "Search")
+
+    </header>
+
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <td>Číšlo zasadnutia</td>
+                    <td>Dátum zasadnutia</td>
+                    <td>Poslanec</td>
+                    <td>Politická strana</td>
+                    <td>Prítomnosť</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var data in Model)
+                {
+                    <tr>
+                        <td>@data.SessionID</td>
+                        <td>@data.SessionDate</td>
+                        <td>@data.Name</td>
+                        <td>@data.Party</td>
+                        <td>@data.Attended</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </body>
 </html>
+
+
