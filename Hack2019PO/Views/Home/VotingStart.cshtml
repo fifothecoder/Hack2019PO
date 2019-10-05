@@ -25,7 +25,7 @@
     </ul>
     <br /><br />
 
-    <div style="margin-left:50px;text-align:center">
+    <div style="text-align:center">
         <h3>Nájdite si najbližšiu volebnú miestnosť : </h3>
         <form action="VotingRoom" method="POST">
             @Html.DropDownListFor(x => x.Address, new SelectList(Hack2019PO.Internals.OpenDataHandler.Streets, Hack2019PO.Internals.OpenDataHandler.Streets[0]))
