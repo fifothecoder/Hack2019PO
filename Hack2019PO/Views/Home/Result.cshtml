@@ -1,4 +1,5 @@
-﻿@model Hack2019PO.Models.SearchData
+﻿@using Hack2019PO.Internals
+@model Hack2019PO.Models.SearchData
 @{
     Layout = null;
 }
@@ -136,6 +137,17 @@
         <li>@Html.ActionLink("Domov", "Index")</li>
 
     </ul>
+
+    <div>
+        @{
+            var str = Model.attendanceRecords[0].Name.Split(' ');
+            string normalized = str[str.Length - 1];
+            normalized = Prettifiers.NormalizeString(normalized).ToLower();
+            string link = $"https://www.po-kraj.sk/images/gallery/poslanci/2017-2022/2017-2022_" + normalized + ".jpg";
+            <img src=@link />
+        }
+    </div>
+
     <div class="hore" style="overflow-x:auto;">
         <table>
             <thead>

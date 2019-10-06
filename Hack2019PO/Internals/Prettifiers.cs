@@ -34,5 +34,12 @@ namespace Hack2019PO.Internals
                 default: return input;                      //Bypass CS0161 and SNS
             }
         }
+
+        public static string NormalizeString(string str)
+        {
+            byte[] tempBytes;
+            tempBytes = System.Text.Encoding.GetEncoding("ISO-8859-8").GetBytes(str);
+            return System.Text.Encoding.ASCII.GetString(tempBytes);
+        }
     }
 }
