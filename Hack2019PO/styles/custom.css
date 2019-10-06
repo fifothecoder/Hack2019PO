@@ -91,3 +91,6 @@ ul {
         .active {
             background-color: #c33046;
         }
+form select {
+    height: 30px;
+}
